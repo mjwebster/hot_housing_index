@@ -1,0 +1,136 @@
+---
+title: "Hot housing market index"
+author: "MaryJo Webster"
+date:  "Last updated: `r Sys.Date()`"
+output:
+  html_document: 
+    toc: true
+    to_depth: 1
+    toc_float: true
+    theme: cerulean
+    
+---
+
+```{r setup, include=FALSE}
+
+#see the load data section for what data needs to be prepped before running this
+
+
+knitr::opts_chunk$set(echo = FALSE)
+
+#install.packages("DT")
+library(readr) #importing csv files
+#library(plyr) #needed for stacked bar chart label positions
+library(dplyr) #general analysis 
+library(ggplot2) #making charts
+library(lubridate) #date functions
+library(reshape2) #use this for melt function to create one record for each team
+library(tidyr)
+library(janitor) #use this for doing crosstabs
+
+library(scales) #needed for stacked bar chart axis labels
+library(knitr) #needed for making tables in markdown page
+library(car)
+library(aws.s3) #needed for uploading to amazon S3 server
+library(rmarkdown)
+library(DT) #needed for making  searchable sortable data tble
+library(jsonlite)
+```
+
+
+
+ 
+
+```{r, code=readLines("script_hotindex.R"), echo=FALSE, warning=FALSE, message=FALSE}
+
+```
+
+
+
+
+#Top 20 cities
+
+```{r top10, echo=FALSE}
+kable(final_table %>% filter(index_rank<=20) %>% select(FullName, location, index_rank, LastRank) %>% arrange(index_rank))
+
+
+```
+
+
+
+#Hot housing Index
+Index_rank=This year's ranking on the index<br>
+LastRank=Last year's ranking<br>
+pct_op= Average percent of seller's original price<br>
+PctDistressed = Pct of sales that were foreclosures/short sales<br>
+ppsf_pctchange= Pct change in price per square foot median<br>
+dom_curr= Average days on market this year<br>
+dom_diff = Change in average days on market compared to year before<br>
+
+```{r}
+
+#make a searchable, sortable data table of key metrics
+
+top100table <- final_table  %>% select(FullName,index_rank, LastRank, cs_curr, pctorigprice, ppsf_pctchange, dom_curr, dom_diff) %>%
+  mutate(pct_op=round(pctorigprice,2)) %>%
+  select(FullName, index_rank, LastRank, cs_curr, pct_op, ppsf_pctchange, dom_curr, dom_diff) %>% 
+  arrange(index_rank)
+
+#this uses the DT package
+#find out more about styling the table here: https://blog.rstudio.com/2015/06/24/dt-an-r-interface-to-the-datatables-library/
+datatable(top100table)
+```
+
+
+#Biggest movers up the index<br>
+Only includes cities that moved at least 15 spots up<br>
+Move=number of places moved between last year and this year<br>
+index_rank= current ranking<br>
+LastRank=Last year's ranking<br>
+
+```{r bigmovers, echo=FALSE}
+kable(final_table %>% select(FullName,location, index_rank, LastRank) %>% mutate(move=LastRank-index_rank) %>% filter(move>15) %>% arrange(desc(move)))
+```
+
+
+
+
+
+#Look at price per square foot
+```{r}
+price_table <- final_table  %>% filter(index_rank!="NA") %>% select(FullName,index_rank, LastRank, ppsf_yr3, ppsf_y4, ppsf_yr5, ppsf_pctchange) %>%
+  mutate(ppsf_2yrsago= round(ppsf_yr3,2),
+         ppsf_lstyr = round(ppsf_y4, 2),
+         ppsf_thisyr = round(ppsf_yr5,2)) %>% 
+ select(FullName, index_rank, ppsf_2yrsago, ppsf_lstyr, ppsf_thisyr, ppsf_pctchange) %>% 
+  arrange(desc(ppsf_pctchange))
+
+#this uses the DT package
+#find out more about styling the table here: https://blog.rstudio.com/2015/06/24/dt-an-r-interface-to-the-datatables-library/
+datatable(price_table)
+```
+
+
+
+
+
+
+```{r loadtoaws, echo=FALSE, eval=FALSE, results="hide"}
+
+#Load to this URL: http://strib-data-internal.s3-us-west-1.amazonaws.com/projects/HotHousingIndex/HotIndex.html
+#this section will not run automatically when you run the whole page
+
+
+
+Sys.setenv("AWS_ACCESS_KEY_ID" =  rstudioapi::askForPassword("AWS_ACCESS_KEY_ID"),
+
+           "AWS_SECRET_ACCESS_KEY" = rstudioapi::askForPassword("AWS_SECRET_ACCESS_KEY"))
+		   
+		   get_bucket("strib-data-internal")
+
+
+put_object(file = "HotIndex.html", object = "projects/HotHousingIndex/HotIndex.html", bucket = "strib-data-internal")
+
+put_object(file = "HotIndex.html", object = "projects/HotHousingIndex/HotIndex.html", bucket = "strib-data-internal", acl=c("public-read"))
+```
+
