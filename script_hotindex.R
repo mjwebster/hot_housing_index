@@ -53,6 +53,10 @@ fouryearsago <- '2014'
 #load the city croswalk file
 cities <- read_csv("city_crosswalk.csv")  %>% filter(County13=='y')
 
+#Create a new field that only grabs the state code and county subidivision code
+#this is needed for joining to census data later
+cities <- cities %>% mutate(geoid2=substr(GEOID,8,14))
+
 #load this year's data files and melt them (normalize)
 
 #closed sales data for all years by community
@@ -62,6 +66,22 @@ polp <- melt(read_csv("polp.csv"), id.vars="Place")  #pct of original list price
 ppsf <- melt(read_csv("ppsf.csv"), id.vars = "Place")  #price per sq foot data for all years by community 
 inventory <- melt(read_csv("inventory.csv"), id.vars="Place")  #INVENTORY ; this is not used for the index
 
+
+#generate timeseries table to export for interactive (exported as JSON at bottom of script)
+timeseries <- inner_join(closed, cities %>%
+                           select(NameInRealtorsData, geoid2, FullName), by=c("Place"="NameInRealtorsData"))%>% 
+  rename(closed="value")
+
+timeseries <- inner_join(timeseries, dom, by=c("Place"="Place", "variable"="variable")) %>% 
+  rename(dom="value")
+
+timeseries <- inner_join(timeseries, ppsf, by=c("Place"="Place", "variable"="variable")) %>% 
+  rename(ppsf="value")
+
+timeseries <- inner_join(timeseries, inventory, by=c("Place"="Place", "variable"="variable")) %>% 
+  rename(inventory="value")
+
+
 #load other data files that don't need to be melted
 #UPDATE THIS!!!!
 other <- read_csv("othermetrics2018.csv")  
@@ -70,17 +90,11 @@ other2016 <- read_csv("othermetrics2016.csv")  #other metrics for 2016
 lastindex <- read_csv("hotindex2017_revised.csv", col_types=cols(GEOID=col_character(), index_rank=col_double()))  #final index scores for last index we ran 
 
 
-
-
 #data cleanup
-
-#Create a new field that only grabs the state code and county subidivision code
-#this is needed for joining to census data later
-cities <- cities %>% mutate(geoid2=substr(GEOID,8,14))
-
-
 #fix city name for Minneapolis in the other metrics file
 other$place[other$place =="Minneapolis - (Citywide)"] <- "Minneapolis"
+
+
 
 
 
@@ -238,47 +252,27 @@ final_table_export <-  final_table %>%
 
 
 
-write.csv(final_table_export, "hotindex2018_testing.csv", row.names=FALSE)
+#write.csv(final_table_export, "hotindex2018_testing.csv", row.names=FALSE)
 
 #export as JSON
 
+
+
+
+
+
+
+#Generate and export JSON files
 
 hot_housing_index_json <-  toJSON(final_table_export, pretty=TRUE)
 write(hot_housing_index_json, "hot_housing_index.json")
 
 
 
-
-#generate time series tables
-
-closed_timeseries<-  left_join(cities %>%
-                                  select(NameInRealtorsData, geoid2, FullName), closed, by=c("NameInRealtorsData"="Place"))
-
-dom_timeseries<-  left_join(cities %>%
-                              select(NameInRealtorsData, geoid2, FullName), dom, by=c("NameInRealtorsData"="Place"))
-
-ppsf_timeseries <-  left_join(cities %>%
-                                select(NameInRealtorsData, geoid2, FullName), ppsf, by=c("NameInRealtorsData"="Place"))
-
-inventory_timeseries <-  left_join(cities %>%
-                                     select(NameInRealtorsData, geoid2, FullName), inventory, by=c("NameInRealtorsData"="Place"))
+timeseries_json <-  toJSON(timeseries, pretty=TRUE)
+write(timeseries_json, "timeseries.json")
 
 
-#Generate and export JSON files
-
-closed_timeseries_json <-  toJSON(closed_timeseries, pretty=TRUE)
-write(closed_timeseries_json, "closed_timeseries.json")
-
-
-dom_timeseries_json <-  toJSON(dom_timeseries, pretty=TRUE)
-write(dom_timeseries_json, "dom_timeseries.json")
-
-
-ppsf_timeseries_json <-  toJSON(ppsf_timeseries, pretty=TRUE)
-write(ppsf_timeseries_json, "ppsf_timeseries.json")
-
-inv_timeseries_json <-  toJSON(inventory_timeseries, pretty=TRUE)
-write(inv_timeseries_json, "inv_timeseries.json")
 
 
 
