@@ -126,7 +126,9 @@ ppsfnew <- ppsfnew%>%select(Place, ppsf_yr1=fouryearsago, ppsf_yr2=threeyearsago
 #distressed, new construction, townhousecondo -- most recent year --from othermetrics
 #make sure the fields are decimals (without percent signs)
 distress <- other%>%select(place) %>%
-  mutate(NewConstruct=round(other$NewConstruction*100,1), TownCondo=round(other$TownhouseCondo*100,1), PctDistressed=round(other$Distressed*100,1))
+  mutate(NewConstruct=round(other$NewConstruction,3), 
+         TownCondo=round(other$TownhouseCondo,3), 
+         PctDistressed=round(other$Distressed,3))
 
 
 #join the index_table with other metrics
@@ -151,7 +153,8 @@ index_table <- index_table%>%
 
 #ADD VARIABLE:
 #Pct change between PPSF for most recent year and prior 4-yr average
-index_table <- index_table%>%mutate(ppsf_pctchange = round((ppsf_yr5-avgPPSF)/avgPPSF*100,1))
+index_table <- index_table%>%
+  mutate(ppsf_pctchange = round((ppsf_yr5-avgPPSF)/avgPPSF,3))
 
 
 
@@ -162,7 +165,7 @@ index_table <- index_table%>%mutate(ppsf_pctchange = round((ppsf_yr5-avgPPSF)/av
 #rank distressed (1=high percentage) Notice the minus sign in front of the field name
 #the na.last=false on the distressed one is to look for NULL values in the PctDistressed field; if so, they get a low rank score
 
-#This winnows it down to only cities that are eligible for rankings (20 sales or more)
+#This winnows it down to only cities that are eligible for rankings (75 sales or more)
 index_table_rankings <- index_table%>%
   filter(cs_curr>=75) %>% 
   mutate(dom_rank=rank(-dom_curr),
@@ -197,7 +200,7 @@ final_table <- left_join(final_table, lastindex_results, by=c("Place"="Place"))
 
 
 
-#import census data on tenure and housing costs
+#import census data on tenure and housing costs - #b25106
 
 census_tenure <-  read_csv("census_tenure_costs.csv", 
                            col_types=cols(geoid=col_character(),Geography=col_character(),
@@ -206,10 +209,15 @@ census_tenure <-  read_csv("census_tenure_costs.csv",
                                           PctCostBurdenedOwners=col_double(),
                                           OwnerOccupiedUnits=col_integer()))
 
-#import census data on median household income
+#import census data on median household income - B19013
 census_income <-  read_csv("ACS_17_5YR_B19013.csv", col_types=cols(geoid=col_character(),
                                           HD01_VD01=col_integer())) %>% rename(MedianHHIncome=HD01_VD01)
 
+
+#Import census data on median value of owner-occupied homes - B25077
+census_value <-  read_csv("ACS_17_5YR_B25077.csv", col_types=cols(geoid=col_character(),
+                                                                   HD01_VD01=col_integer())) %>%
+  rename(MedianValue=HD01_VD01)
 
 #Join Census metrics to the final_table
 final_table <- left_join(final_table, census_tenure %>%
@@ -218,20 +226,25 @@ final_table <- left_join(final_table, census_tenure %>%
 final_table <- left_join(final_table, census_income %>%
                            select(geoid, MedianHHIncome), by=c("geoid2.x"="geoid"))
 
+final_table <-  left_join(final_table, census_value %>% 
+                            select(geoid, MedianValue), by=c("geoid2.x"="geoid"))
+
 final_table_export <-  final_table %>%
-  select(Place, geoid2.x, FullName, location,location,
-                                            COUNTY, STATE, ppsf_pctchange, dom_diff,pctorigprice,
+  select(Place, geoid2.x, FullName, location,
+                                            COUNTY, STATE, cs_curr, ppsf_pctchange, dom_diff,pctorigprice,
                                             PctDistressed,NewConstruct, index_score, index_rank, LastRank,
-                                            PctOwner, PctCostBurdenedOwners, MedianHHIncome) %>% 
+                                            PctOwner, PctCostBurdenedOwners, MedianHHIncome, MedianValue) %>% 
   rename(geoid2=geoid2.x)
 
 
 
-write.csv(final_table, "hotindex2018_testing.csv", row.names=FALSE)
+write.csv(final_table_export, "hotindex2018_testing.csv", row.names=FALSE)
 
 #export as JSON
 
 
+hot_housing_index_json <-  toJSON(final_table_export, pretty=TRUE)
+write(hot_housing_index_json, "hot_housing_index.json")
 
 
 
@@ -244,9 +257,6 @@ closed_timeseries<-  left_join(cities %>%
 dom_timeseries<-  left_join(cities %>%
                               select(NameInRealtorsData, geoid2, FullName), dom, by=c("NameInRealtorsData"="Place"))
 
-polp_timeseries <-  left_join(cities %>%
-                                select(NameInRealtorsData, geoid2, FullName), polp, by=c("NameInRealtorsData"="Place"))
-
 ppsf_timeseries <-  left_join(cities %>%
                                 select(NameInRealtorsData, geoid2, FullName), ppsf, by=c("NameInRealtorsData"="Place"))
 
@@ -257,4 +267,18 @@ inventory_timeseries <-  left_join(cities %>%
 #Generate and export JSON files
 
 closed_timeseries_json <-  toJSON(closed_timeseries, pretty=TRUE)
-write(closed_timeseries_json, "closed_timeseries_json.json")
+write(closed_timeseries_json, "closed_timeseries.json")
+
+
+dom_timeseries_json <-  toJSON(dom_timeseries, pretty=TRUE)
+write(dom_timeseries_json, "dom_timeseries.json")
+
+
+ppsf_timeseries_json <-  toJSON(ppsf_timeseries, pretty=TRUE)
+write(ppsf_timeseries_json, "ppsf_timeseries.json")
+
+inv_timeseries_json <-  toJSON(inventory_timeseries, pretty=TRUE)
+write(inv_timeseries_json, "inv_timeseries.json")
+
+
+

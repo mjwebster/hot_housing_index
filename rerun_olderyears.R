@@ -60,8 +60,7 @@ ppsf <- melt(read_csv("ppsf.csv"), id.vars = "Place")  #price per sq foot data f
 #UPDATE THIS!!!!
 #other <- read_csv("othermetrics2018.csv")  
 other <- read_csv("othermetrics2017.csv")  #other metrics for 2017 (pct new construction, pct townhouse, pct distressed) 
-other2016 <- read_csv("othermetrics2016.csv")  #other metrics for 2016
-#lastindex <- read_csv("hotindex2017.csv", col_types=cols(GEOID=col_character(), index_rank=col_double()))  #final index scores for last index we ran 
+#other <- read_csv("othermetrics2016.csv")  #other metrics for 2016
 
 
 
@@ -120,7 +119,9 @@ ppsfnew <- ppsfnew%>%select(Place, ppsf_yr1=fouryearsago, ppsf_yr2=threeyearsago
 #distressed, new construction, townhousecondo -- most recent year --from othermetrics
 #make sure the fields are decimals (without percent signs)
 distress <- other%>%select(place) %>%
-  mutate(NewConstruct=round(other$NewConstruction*100,1), TownCondo=round(other$TownhouseCondo*100,1), PctDistressed=round(other$Distressed*100,1))
+  mutate(NewConstruct=round(other$NewConstruction,3), 
+         TownCondo=round(other$TownhouseCondo,3), 
+         PctDistressed=round(other$Distressed,3))
 
 
 #join the index_table with other metrics
@@ -145,7 +146,8 @@ index_table <- index_table%>%
 
 #ADD VARIABLE:
 #Pct change between PPSF for most recent year and prior 4-yr average
-index_table <- index_table%>%mutate(ppsf_pctchange = round((ppsf_yr5-avgPPSF)/avgPPSF*100,1))
+index_table <- index_table%>%
+  mutate(ppsf_pctchange = round((ppsf_yr5-avgPPSF)/avgPPSF,3))
 
 
 
@@ -156,6 +158,7 @@ index_table <- index_table%>%mutate(ppsf_pctchange = round((ppsf_yr5-avgPPSF)/av
 #rank PPSF change (1=lowest percentage)  
 #rank distressed (1=high percentage) Notice the minus sign in front of the field name
 #the na.last=false on the distressed one is to look for NULL values in the PctDistressed field; if so, they get a low rank score
+#only includes cities with at least 75 sales
 
 index_table_rankings <- index_table%>%
   filter(cs_curr>=75) %>% 
