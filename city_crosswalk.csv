@@ -1,221 +1,322 @@
-NameInRealtorsData,GEOID,FullName,CityName,ZillowName,COUNTY,STATE,subdiv_geoid,subdiv_full_name,multiplecounties,location,County13
-Andover,16000US2701486,"Andover, MN",Andover,Andover,Anoka,MN,06000US2700301486,"Andover city, Anoka County, MN",,outer suburbs,y
-Ramsey,16000US2753026,"Ramsey, MN",Ramsey,Ramsey,Anoka,MN,06000US2700353026,"Ramsey city, Anoka County, MN",,outer suburbs,y
-Oak Grove,16000US2747690,"Oak Grove, MN",Oak Grove,,Anoka,MN,06000US2700347690,"Oak Grove city, Anoka County, MN",,outer suburbs,y
-Nowthen,16000US2747536,"Nowthen, MN",Nowthen,,Anoka,MN,06000US2700347536,"Nowthen city, Anoka County, MN",,outer suburbs,y
-Lino Lakes,16000US2737322,"Lino Lakes, MN",Lino Lakes,Lino Lakes,Anoka,MN,06000US2700337322,"Lino Lakes city, Anoka County, MN",,outer suburbs,y
-Lexington,16000US2736836,"Lexington, MN",Lexington,,Anoka,MN,06000US2700336836,"Lexington city, Anoka County, MN",,outer suburbs,y
-Hilltop,16000US2729258,"Hilltop, MN",Hilltop,,Anoka,MN,06000US2700329258,"Hilltop city, Anoka County, MN",,outer suburbs,y
-Ham Lake,16000US2726738,"Ham Lake, MN",Ham Lake,,Anoka,MN,06000US2700326738,"Ham Lake city, Anoka County, MN",,outer suburbs,y
-Fridley,16000US2722814,"Fridley, MN",Fridley,Fridley,Anoka,MN,06000US2700322814,"Fridley city, Anoka County, MN",,outer suburbs,y
-East Bethel,16000US2717486,"East Bethel, MN",East Bethel,East Bethel,Anoka,MN,06000US2700317486,"East Bethel city, Anoka County, MN",,outer suburbs,y
-Coon Rapids,16000US2713114,"Coon Rapids, MN",Coon Rapids,Coon Rapids,Anoka,MN,06000US2700313114,"Coon Rapids city, Anoka County, MN",,outer suburbs,y
-Columbus,16000US2712718,"Columbus, MN",Columbus,,Anoka,MN,06000US2700312718,"Columbus city, Anoka County, MN",,outer suburbs,y
-Columbia Heights,16000US2712700,"Columbia Heights, MN",Columbia Heights,Columbia Heights,Anoka,MN,06000US2700312700,"Columbia Heights city, Anoka County, MN",,inner suburbs,y
-Circle Pines,16000US2711494,"Circle Pines, MN",Circle Pines,,Anoka,MN,06000US2700311494,"Circle Pines city, Anoka County, MN",,outer suburbs,y
-Blaine,16000US2706382,"Blaine, MN",Blaine,Blaine,Anoka,MN,06000US2700306382,"Blaine city, Anoka County, MN",2,outer suburbs,y
-Anoka,16000US2701720,"Anoka, MN",Anoka,,Anoka,MN,06000US2700301720,"Anoka city, Anoka County, MN",,outer suburbs,y
-Wyoming,16000US2772022,"Wyoming, MN",Wyoming,Wyoming,"Anoka, Chisago",MN,06000US2702572022,"Wyoming city, Chisago County, MN",2,Exurbs,y
-Stacy,16000US2762320,"Stacy, MN",Stacy,Stacy,"Anoka, Chisago, Isanti",MN,06000US2702562320,"Stacy city, Chisago County, MN",,Exurbs,y
-Forest Lake,16000US2721770,"Forest Lake, MN",Forest Lake,Forest Lake,"Anoka, Chisago, Washington",MN,06000US2716321770,"Forest Lake city, Washington County, MN",3,Exurbs,y
-Saint Francis,16000US2756950,"St. Francis, MN",St. Francis,Saint Francis,"Anoka, Isanti",MN,06000US2700356950,"St. Francis city, Anoka County, MN",2,Exurbs,y
-Bethel,16000US2705554,"Bethel, MN",Bethel,,"Anoka, Isanti",MN,06000US2700305554,"Bethel city, Anoka County, MN",,Exurbs,y
-Spring Lake Park,16000US2761996,"Spring Lake Park, MN",Spring Lake Park,,"Anoka, Ramsey",MN,06000US2700361996,"Spring Lake Park city, Anoka County, MN",2,inner suburbs,y
-Elk River,16000US2718674,"Elk River, MN",Elk River,Elk River,"Anoka, Sherburne",MN,06000US2714118674,"Elk River city, Sherburne County, MN",2,Exurbs,y
-Centerville,16000US2710648,"Centerville, MN",Centerville,,"Anoka, Washington",MN,06000US2700310648,"Centerville city, Anoka County, MN",2,outer suburbs,y
-Otsego,16000US2749138,"Otsego, MN",Otsego,,"Anoka, Wright",MN,06000US2717149138,"Otsego city, Wright County, MN",2,Exurbs,y
-Waconia,16000US2767432,"Waconia, MN",Waconia,Waconia,Carver,MN,06000US2701967432,"Waconia city, Carver County, MN",,outer suburbs,y
-Victoria,16000US2767036,"Victoria, MN",Victoria,Victoria,Carver,MN,06000US2701967036,"Victoria city, Carver County, MN",,outer suburbs,y
-Norwood Young America,16000US2747520,"Norwood Young America, MN",Norwood Young America,Norwood Young America,Carver,MN,06000US2701947520,"Norwood Young America city, Carver County, MN",,outer suburbs,y
-New Germany,16000US2745556,"New Germany, MN",New Germany,New Germany,Carver,MN,06000US2701945556,"New Germany city, Carver County, MN",,outer suburbs,y
-Mayer,16000US2741138,"Mayer, MN",Mayer,Mayer,Carver,MN,06000US2701941138,"Mayer city, Carver County, MN",,outer suburbs,y
-Cologne,16000US2712664,"Cologne, MN",Cologne,Cologne,Carver,MN,06000US2701912664,"Cologne city, Carver County, MN",,outer suburbs,y
-Carver,16000US2710144,"Carver, MN",Carver,Carver,Carver,MN,06000US2701910144,"Carver city, Carver County, MN",,outer suburbs,y
-Chanhassen,16000US2710918,"Chanhassen, MN",Chanhassen,Chanhassen,"Carver, Hennepin",MN,06000US2701910918,"Chanhassen city, Carver County, MN",2,outer suburbs,y
-Chaska,16000US2710972,"Chaska, MN",Chaska,Chaska,"Carver, Scott",MN,06000US2701910972,"Chaska city, Carver County, MN",2,outer suburbs,y
-Hamburg,16000US2726666,"Hamburg, MN",Hamburg,Hamburg,"Carver, Sibley",MN,06000US2701926666,"Hamburg city, Carver County, MN",2,Exurbs,y
-Watertown,16000US2768548,"Watertown, MN",Watertown,Watertown,"Carver, Wright",MN,06000US2701968548,"Watertown city, Carver County, MN",2,Exurbs,y
-Delano,16000US2715454,"Delano, MN",Delano,,"Carver, Wright",MN,06000US2717115454,"Delano city, Wright County, MN",2,Exurbs,y
-Taylors Falls,16000US2764318,"Taylors Falls, MN",Taylors Falls,Taylors Falls,Chisago,MN,06000US2702564318,"Taylors Falls city, Chisago County, MN",,Exurbs,n
-Shafer,16000US2759314,"Shafer, MN",Shafer,Shafer,Chisago,MN,06000US2702559314,"Shafer city, Chisago County, MN",,Exurbs,n
-Rush City,16000US2756266,"Rush City, MN",Rush City,Rush City,Chisago,MN,06000US2702556266,"Rush City city, Chisago County, MN",,Exurbs,y
-Lindstrom,16000US2737304,"Lindstrom, MN",Lindstrom,Lindstrom,Chisago,MN,06000US2702537304,"Lindstrom city, Chisago County, MN",,Exurbs,y
-Harris,16000US2727278,"Harris, MN",Harris,Harris,Chisago,MN,06000US2702527278,"Harris city, Chisago County, MN",,Exurbs,n
-Chisago City,16000US2711350,"Chisago City, MN",Chisago City,Chisago City,Chisago,MN,06000US2702511350,"Chisago City city, Chisago County, MN",,Exurbs,n
-Center City,16000US2710576,"Center City, MN",Center City,Center City,Chisago,MN,06000US2702510576,"Center City city, Chisago County, MN",,Exurbs,n
-North Branch,16000US2746798,"North Branch, MN",North Branch,North Branch,"Chisago, Isanti",MN,06000US2702546798,"North Branch city, Chisago County, MN",2,Exurbs,y
-Cambridge,16000US2709370,"Cambridge, MN",Cambridge,Cambridge,"Chisago, Isanti",MN,06000US2705909370,"Cambridge city, Isanti County, MN",2,Exurbs,y
-Braham,16000US2707282,"Braham, MN",Braham,Braham,"Chisago, Isanti",MN,06000US2705907282,"Braham city, Isanti County, MN",2,Exurbs,n
-Scandia,16000US2758900,"Scandia, MN",Scandia,Scandia,"Chisago, Washington",MN,06000US2716358900,"Scandia city, Washington County, MN",2,Exurbs,y
-Vermillion,16000US2766802,"Vermillion, MN",Vermillion,Vermillion,Dakota,MN,06000US2703766802,"Vermillion city, Dakota County, MN",,outer suburbs,y
-Sunfish Lake,16000US2763544,"Sunfish Lake, MN",Sunfish Lake,,Dakota,MN,06000US2703763544,"Sunfish Lake city, Dakota County, MN",,inner suburbs,y
-South Saint Paul,16000US2761492,"South St. Paul, MN",South St. Paul,South Saint Paul,Dakota,MN,06000US2703761492,"South St. Paul city, Dakota County, MN",,inner suburbs,y
-Rosemount,16000US2755726,"Rosemount, MN",Rosemount,Rosemount,Dakota,MN,06000US2703755726,"Rosemount city, Dakota County, MN",,outer suburbs,y
-Randolph,16000US2753098,"Randolph, MN",Randolph,Randolph,Dakota,MN,06000US2703753098,"Randolph city, Dakota County, MN",,outer suburbs,y
-New Trier,16000US2746024,"New Trier, MN",New Trier,,Dakota,MN,06000US2703746024,"New Trier city, Dakota County, MN",,outer suburbs,y
-Miesville,16000US2742092,"Miesville, MN",Miesville,,Dakota,MN,06000US2703742092,"Miesville city, Dakota County, MN",,outer suburbs,y
-Mendota Heights,16000US2741696,"Mendota Heights, MN",Mendota Heights,Mendota Heights,Dakota,MN,06000US2703741696,"Mendota Heights city, Dakota County, MN",,inner suburbs,y
-Mendota,16000US2741678,"Mendota, MN",Mendota,Mendota,Dakota,MN,06000US2703741678,"Mendota city, Dakota County, MN",,inner suburbs,y
-Lilydale,16000US2737016,"Lilydale, MN",Lilydale,,Dakota,MN,06000US2703737016,"Lilydale city, Dakota County, MN",,inner suburbs,y
-Hampton,16000US2726864,"Hampton, MN",Hampton,Hampton,Dakota,MN,06000US2703726864,"Hampton city, Dakota County, MN",,outer suburbs,y
-Farmington,16000US2720618,"Farmington, MN",Farmington,Farmington,Dakota,MN,06000US2703720618,"Farmington city, Dakota County, MN",,outer suburbs,y
-Eagan,16000US2717288,"Eagan, MN",Eagan,Eagan,Dakota,MN,06000US2703717288,"Eagan city, Dakota County, MN",,inner suburbs,y
-Coates,16000US2712376,"Coates, MN",Coates,,Dakota,MN,06000US2703712376,"Coates city, Dakota County, MN",,outer suburbs,y
-Burnsville,16000US2708794,"Burnsville, MN",Burnsville,Burnsville,Dakota,MN,06000US2703708794,"Burnsville city, Dakota County, MN",,inner suburbs,y
-Apple Valley,16000US2701900,"Apple Valley, MN",Apple Valley,Apple Valley,Dakota,MN,06000US2703701900,"Apple Valley city, Dakota County, MN",,inner suburbs,y
-Inver Grove Heights,16000US2731076,"Inver Grove Heights, MN",Inver Grove Heights,Inver Grove Heights,"Dakota, Ramsey",MN,06000US2703731076,"Inver Grove Heights city, Dakota County, MN",,inner suburbs,y
-Lakeville,16000US2735180,"Lakeville, MN",Lakeville,Lakeville,"Dakota, Scott",MN,06000US2703735180,"Lakeville city, Dakota County, MN",2,outer suburbs,y
-Hastings,16000US2727530,"Hastings, MN",Hastings,Hastings,"Dakota, Washington",MN,06000US2703727530,"Hastings city, Dakota County, MN",2,outer suburbs,y
-Woodland,16000US2771500,"Woodland, MN",Woodland,,Hennepin,MN,06000US2705371500,"Woodland city, Hennepin County, MN",,inner suburbs,y
-Wayzata,16000US2768818,"Wayzata, MN",Wayzata,Wayzata,Hennepin,MN,06000US2705368818,"Wayzata city, Hennepin County, MN",,inner suburbs,y
-Tonka Bay,16000US2765164,"Tonka Bay, MN",Tonka Bay,,Hennepin,MN,06000US2705365164,"Tonka Bay city, Hennepin County, MN",,inner suburbs,y
-Spring Park,16000US2762014,"Spring Park, MN",Spring Park,Spring Park,Hennepin,MN,06000US2705362014,"Spring Park city, Hennepin County, MN",,inner suburbs,y
-Shorewood,16000US2760016,"Shorewood, MN",Shorewood,Shorewood,Hennepin,MN,06000US2705360016,"Shorewood city, Hennepin County, MN",,inner suburbs,y
-Saint Louis Park,16000US2757220,"St. Louis Park, MN",St. Louis Park,Saint Louis Park,Hennepin,MN,06000US2705357220,"St. Louis Park city, Hennepin County, MN",,inner suburbs,y
-Saint Bonifacius,16000US2756770,"St. Bonifacius, MN",St. Bonifacius,Saint Bonifacius,Hennepin,MN,06000US2705356770,"St. Bonifacius city, Hennepin County, MN",,outer suburbs,y
-Rogers,16000US2755186,"Rogers, MN",Rogers,Rogers,Hennepin,MN,06000US2705355186,"Rogers city, Hennepin County, MN",,outer suburbs,y
-Robbinsdale,16000US2754808,"Robbinsdale, MN",Robbinsdale,Robbinsdale,Hennepin,MN,06000US2705354808,"Robbinsdale city, Hennepin County, MN",,inner suburbs,y
-Richfield,16000US2754214,"Richfield, MN",Richfield,Richfield,Hennepin,MN,06000US2705354214,"Richfield city, Hennepin County, MN",,inner suburbs,y
-Plymouth,16000US2751730,"Plymouth, MN",Plymouth,Plymouth,Hennepin,MN,06000US2705351730,"Plymouth city, Hennepin County, MN",,inner suburbs,y
-Osseo,16000US2749012,"Osseo, MN",Osseo,,Hennepin,MN,06000US2705349012,"Osseo city, Hennepin County, MN",,inner suburbs,y
-Orono,16000US2748580,"Orono, MN",Orono,Orono,Hennepin,MN,06000US2705348580,"Orono city, Hennepin County, MN",,outer suburbs,y
-New Hope,16000US2745628,"New Hope, MN",New Hope,New Hope,Hennepin,MN,06000US2705345628,"New Hope city, Hennepin County, MN",,inner suburbs,y
-Mound,16000US2744476,"Mound, MN",Mound,Mound,Hennepin,MN,06000US2705344476,"Mound city, Hennepin County, MN",,outer suburbs,y
-Minnetrista,16000US2743306,"Minnetrista, MN",Minnetrista,,Hennepin,MN,06000US2705343306,"Minnetrista city, Hennepin County, MN",,outer suburbs,y
-Minnetonka Beach,16000US2743270,"Minnetonka Beach, MN",Minnetonka Beach,,Hennepin,MN,06000US2705343270,"Minnetonka Beach city, Hennepin County, MN",,inner suburbs,y
-Minnetonka,16000US2743252,"Minnetonka, MN",Minnetonka,Minnetonka,Hennepin,MN,06000US2705343252,"Minnetonka city, Hennepin County, MN",,inner suburbs,y
-Minneapolis,16000US2743000,"Minneapolis, MN",Minneapolis,Minneapolis,Hennepin,MN,06000US2705343000,"Minneapolis city, Hennepin County, MN",,core cities,y
-Medina,16000US2741480,"Medina, MN",Medina,Medina,Hennepin,MN,06000US2705341480,"Medina city, Hennepin County, MN",,outer suburbs,y
-Medicine Lake,16000US2741462,"Medicine Lake, MN",Medicine Lake,,Hennepin,MN,06000US2705341462,"Medicine Lake city, Hennepin County, MN",,inner suburbs,y
-Maple Plain,16000US2740256,"Maple Plain, MN",Maple Plain,,Hennepin,MN,06000US2705340256,"Maple Plain city, Hennepin County, MN",,outer suburbs,y
-Maple Grove,16000US2740166,"Maple Grove, MN",Maple Grove,Maple Grove,Hennepin,MN,06000US2705340166,"Maple Grove city, Hennepin County, MN",,inner suburbs,y
-Loretto,16000US2738222,"Loretto, MN",Loretto,,Hennepin,MN,06000US2705338222,"Loretto city, Hennepin County, MN",,outer suburbs,y
-Long Lake,16000US2738006,"Long Lake, MN",Long Lake,,Hennepin,MN,06000US2705338006,"Long Lake city, Hennepin County, MN",,outer suburbs,y
-Independence,16000US2730842,"Independence, MN",Independence,Independence,Hennepin,MN,06000US2705330842,"Independence city, Hennepin County, MN",,outer suburbs,y
-Hopkins,16000US2730140,"Hopkins, MN",Hopkins,Hopkins,Hennepin,MN,06000US2705330140,"Hopkins city, Hennepin County, MN",,inner suburbs,y
-Greenwood,16000US2725918,"Greenwood, MN",Greenwood,,Hennepin,MN,06000US2705325918,"Greenwood city, Hennepin County, MN",,inner suburbs,y
-Greenfield,16000US2725622,"Greenfield, MN",Greenfield,Greenfield,Hennepin,MN,06000US2705325622,"Greenfield city, Hennepin County, MN",,outer suburbs,y
-Golden Valley,16000US2724308,"Golden Valley, MN",Golden Valley,Golden Valley,Hennepin,MN,06000US2705324308,"Golden Valley city, Hennepin County, MN",,inner suburbs,y
-Excelsior,16000US2720078,"Excelsior, MN",Excelsior,,Hennepin,MN,06000US2705320078,"Excelsior city, Hennepin County, MN",,inner suburbs,y
-Edina,16000US2718188,"Edina, MN",Edina,Edina,Hennepin,MN,06000US2705318188,"Edina city, Hennepin County, MN",,inner suburbs,y
-Eden Prairie,16000US2718116,"Eden Prairie, MN",Eden Prairie,Eden Prairie,Hennepin,MN,06000US2705318116,"Eden Prairie city, Hennepin County, MN",,inner suburbs,y
-Deephaven,16000US2715148,"Deephaven, MN",Deephaven,,Hennepin,MN,06000US2705315148,"Deephaven city, Hennepin County, MN",,inner suburbs,y
-Crystal,16000US2714158,"Crystal, MN",Crystal,,Hennepin,MN,06000US2705314158,"Crystal city, Hennepin County, MN",,inner suburbs,y
-Corcoran,16000US2713168,"Corcoran, MN",Corcoran,,Hennepin,MN,06000US2705313168,"Corcoran city, Hennepin County, MN",,outer suburbs,y
-Champlin,16000US2710846,"Champlin, MN",Champlin,Champlin,Hennepin,MN,06000US2705310846,"Champlin city, Hennepin County, MN",,inner suburbs,y
-Brooklyn Park,16000US2707966,"Brooklyn Park, MN",Brooklyn Park,Brooklyn Park,Hennepin,MN,06000US2705307966,"Brooklyn Park city, Hennepin County, MN",,inner suburbs,y
-Brooklyn Center,16000US2707948,"Brooklyn Center, MN",Brooklyn Center,Brooklyn Center,Hennepin,MN,06000US2705307948,"Brooklyn Center city, Hennepin County, MN",,inner suburbs,y
-Bloomington,16000US2706616,"Bloomington, MN",Bloomington,Bloomington,Hennepin,MN,06000US2705306616,"Bloomington city, Hennepin County, MN",,inner suburbs,y
-Saint Anthony,16000US2756680,"St. Anthony, MN",St. Anthony,,"Hennepin, Ramsey",MN,06000US2705356680,"St. Anthony city, Hennepin County, MN",2,inner suburbs,y
-Rockford,16000US2755006,"Rockford, MN",Rockford,Rockford,"Hennepin, Wright",MN,06000US2717155006,"Rockford city, Wright County, MN",2,Exurbs,y
-Hanover,16000US2726990,"Hanover, MN",Hanover,Hanover,"Hennepin, Wright",MN,06000US2717126990,"Hanover city, Wright County, MN",2,Exurbs,y
-Dayton,16000US2715022,"Dayton, MN",Dayton,Dayton,"Hennepin, Wright",MN,06000US2705315022,"Dayton city, Hennepin County, MN",2,Exurbs,y
-Isanti,16000US2731328,"Isanti, MN",Isanti,Isanti,Isanti,MN,06000US2705931328,"Isanti city, Isanti County, MN",,Exurbs,y
-Princeton,16000US2752522,"Princeton, MN",Princeton,Princeton,"Isanti, Mille Lcs, Sherburne",MN,06000US2709552522,"Princeton city, Mille Lacs County, MN",2,Exurbs,y
-Waterville,16000US2768584,"Waterville, MN",Waterville,,Le Sueur,MN,06000US2707968584,"Waterville city, Le Sueur County, MN",,Exurbs,n
-Montgomery,16000US2743738,"Montgomery, MN",Montgomery,,Le Sueur,MN,06000US2707943738,"Montgomery city, Le Sueur County, MN",,Exurbs,n
-Le Center,16000US2736134,"Le Center, MN",Le Center,,Le Sueur,MN,06000US2707936134,"Le Center city, Le Sueur County, MN",,Exurbs,n
-Kilkenny,16000US2733110,"Kilkenny, MN",Kilkenny,,Le Sueur,MN,06000US2707933110,"Kilkenny city, Le Sueur County, MN",,Exurbs,n
-Kasota,16000US2732462,"Kasota, MN",Kasota,,Le Sueur,MN,06000US2707932462,"Kasota city, Le Sueur County, MN",,Exurbs,n
-Elysian,16000US2719160,"Elysian, MN",Elysian,,Le Sueur,MN,06000US2707919160,"Elysian city, Le Sueur County, MN",,Exurbs,n
-Cleveland,16000US2711872,"Cleveland, MN",Cleveland,,Le Sueur,MN,06000US2707911872,"Cleveland city, Le Sueur County, MN",,Exurbs,n
-New Prague,16000US2745808,"New Prague, MN",New Prague,New Prague,"Le Sueur, Scott",MN,06000US2713945808,"New Prague city, Scott County, MN",2,Exurbs,n
-Le Sueur,16000US2736746,"Le Sueur, MN",Le Sueur,,"Le Sueur, Sibley",MN,06000US2707936746,"Le Sueur city, Le Sueur County, MN",3,Exurbs,n
-Henderson,16000US2728394,"Henderson, MN",Henderson,,"Le Sueur, Sibley",MN,06000US2714328394,"Henderson city, Sibley County, MN",,Exurbs,n
-Wahkon,16000US2767558,"Wahkon, MN",Wahkon,Wahkon,Mille Lacs,MN,06000US2709567558,"Wahkon city, Mille Lacs County, MN",,Exurbs,n
-Pease,16000US2750056,"Pease, MN",Pease,Pease,Mille Lacs,MN,06000US2709550056,"Pease city, Mille Lacs County, MN",,Exurbs,n
-Onamia,16000US2748310,"Onamia, MN",Onamia,Onamia,Mille Lacs,MN,06000US2709548310,"Onamia city, Mille Lacs County, MN",,Exurbs,n
-Isle,16000US2731472,"Isle, MN",Isle,Isle,Mille Lacs,MN,06000US2709531472,"Isle city, Mille Lacs County, MN",,Exurbs,n
-Foreston,16000US2721824,"Foreston, MN",Foreston,Foreston,Mille Lacs,MN,06000US2709521824,"Foreston city, Mille Lacs County, MN",,Exurbs,n
-Bock,16000US2706814,"Bock, MN",Bock,Bock,Mille Lacs,MN,06000US2709506814,"Bock city, Mille Lacs County, MN",,Exurbs,n
-Milaca,16000US2742110,"Milaca, MN",Milaca,Milaca,"Mille Lacs, Isanti",MN,06000US2709542110,"Milaca city, Mille Lacs County, MN",2,Exurbs,n
-Prescott,16000US5565375,"Prescott, WI",Prescott,Prescott,Pierce,WI,06000US5509365375,"Prescott city, Pierce County, WI",,Exurbs,n
-Plum City,16000US5563600,"Plum City, WI",Plum City,Plum City,Pierce,WI,06000US5509363600,"Plum City village, Pierce County, WI",,Exurbs,n
-Maiden Rock,16000US5548175,"Maiden Rock, WI",Maiden Rock,Maiden Rock,Pierce,WI,06000US5509348175,"Maiden Rock village, Pierce County, WI",,Exurbs,n
-Elmwood,16000US5523700,"Elmwood, WI",Elmwood,Elmwood,Pierce,WI,06000US5509323700,"Elmwood village, Pierce County, WI",,Exurbs,n
-Ellsworth,16000US5523525,"Ellsworth, WI",Ellsworth,Ellsworth,Pierce,WI,06000US5509323525,"Ellsworth village, Pierce County, WI",,Exurbs,n
-Diamond Bluff,16000US5520125,"Diamond Bluff, WI",Diamond Bluff,,Pierce,WI,06000US5509320150,"Diamond Bluff town, Pierce County, WI",,Exurbs,n
-Bay City,16000US5505325,"Bay City, WI",Bay City,Bay City,Pierce,WI,06000US5509305325,"Bay City village, Pierce County, WI",,Exurbs,n
-Spring Valley,16000US5576300,"Spring Valley, WI",Spring Valley,Spring Valley,"Pierce, St. Croix",WI,06000US5509376300,"Spring Valley village, Pierce County, WI",2,Exurbs,n
-River Falls,16000US5568275,"River Falls, WI",River Falls,River Falls,"Pierce, St. Croix",WI,06000US5509368275,"River Falls city, Pierce County, WI",2,Exurbs,y
-Vadnais Heights,16000US2766460,"Vadnais Heights, MN",Vadnais Heights,Vadnais Heights,Ramsey,MN,06000US2712366460,"Vadnais Heights city, Ramsey County, MN",,inner suburbs,y
-Shoreview,16000US2759998,"Shoreview, MN",Shoreview,Shoreview,Ramsey,MN,06000US2712359998,"Shoreview city, Ramsey County, MN",,inner suburbs,y
-Roseville,16000US2755852,"Roseville, MN",Roseville,Roseville,Ramsey,MN,06000US2712355852,"Roseville city, Ramsey County, MN",,inner suburbs,y
-North Saint Paul,16000US2747221,"North St. Paul, MN",North St. Paul,,Ramsey,MN,06000US2712347221,"North St. Paul city, Ramsey County, MN",,inner suburbs,y
-North Oaks,16000US2747104,"North Oaks, MN",North Oaks,,Ramsey,MN,06000US2712347104,"North Oaks city, Ramsey County, MN",,inner suburbs,y
-New Brighton,16000US2745430,"New Brighton, MN",New Brighton,New Brighton,Ramsey,MN,06000US2712345430,"New Brighton city, Ramsey County, MN",,inner suburbs,y
-Mounds View,16000US2744530,"Mounds View, MN",Mounds View,,Ramsey,MN,06000US2712344530,"Mounds View city, Ramsey County, MN",,inner suburbs,y
-Maplewood,16000US2740382,"Maplewood, MN",Maplewood,Maplewood,Ramsey,MN,06000US2712340382,"Maplewood city, Ramsey County, MN",,inner suburbs,y
-Little Canada,16000US2737502,"Little Canada, MN",Little Canada,,Ramsey,MN,06000US2712337502,"Little Canada city, Ramsey County, MN",,inner suburbs,y
-Lauderdale,16000US2735738,"Lauderdale, MN",Lauderdale,,Ramsey,MN,06000US2712335738,"Lauderdale city, Ramsey County, MN",,inner suburbs,y
-Gem Lake,16000US2723318,"Gem Lake, MN",Gem Lake,,Ramsey,MN,06000US2712323318,"Gem Lake city, Ramsey County, MN",,inner suburbs,y
-Falcon Heights,16000US2720420,"Falcon Heights, MN",Falcon Heights,,Ramsey,MN,06000US2712320420,"Falcon Heights city, Ramsey County, MN",,inner suburbs,y
-Arden Hills,16000US2702026,"Arden Hills, MN",Arden Hills,,Ramsey,MN,06000US2712302026,"Arden Hills city, Ramsey County, MN",,inner suburbs,y
-West Saint Paul,16000US2769700,"West St. Paul, MN",West St. Paul,West Saint Paul,"Ramsey, Dakota",MN,06000US2703769700,"West St. Paul city, Dakota County, MN",2,inner suburbs,y
-Saint Paul,16000US2758000,"St. Paul, MN",St. Paul,Saint Paul,"Ramsey, Dakota",MN,06000US2712358000,"St. Paul city, Ramsey County, MN",2,Core cities,y
-White Bear Lake,16000US2769970,"White Bear Lake, MN",White Bear Lake,White Bear Lake,"Ramsey, Washington",MN,06000US2712369970,"White Bear Lake city, Ramsey County, MN",2,inner suburbs,y
-Dellwood,16000US2715616,"Dellwood, MN",Dellwood,,"Ramsey, Washington",MN,06000US2716315616,"Dellwood city, Washington County, MN",2,inner suburbs,y
-Shakopee,16000US2759350,"Shakopee, MN",Shakopee,Shakopee,Scott,MN,06000US2713959350,"Shakopee city, Scott County, MN",,outer suburbs,y
-Savage,16000US2758738,"Savage, MN",Savage,Savage,Scott,MN,06000US2713958738,"Savage city, Scott County, MN",,outer suburbs,y
-Prior Lake,16000US2752594,"Prior Lake, MN",Prior Lake,Prior Lake,Scott,MN,06000US2713952594,"Prior Lake city, Scott County, MN",,outer suburbs,y
-Jordan,16000US2732174,"Jordan, MN",Jordan,Jordan,Scott,MN,06000US2713932174,"Jordan city, Scott County, MN",,outer suburbs,y
-Elko New Market,16000US2718662,"Elko New Market, MN",Elko New Market,Elko New Market,Scott,MN,06000US2713918662,"Elko New Market city, Scott County, MN",,outer suburbs,y
-Belle Plaine,16000US2704834,"Belle Plaine, MN",Belle Plaine,Belle Plaine,"Scott, Carver, Le Sueur, Sibley",MN,06000US2713904834,"Belle Plaine city, Scott County, MN",4,Exurbs,y
-Clear Lake,16000US2711764,"Clear Lake, MN",Clear Lake,Clear Lake,Sherburne,MN,06000US2714111764,"Clear Lake city, Sherburne County, MN",,Exurbs,y
-Big Lake,16000US2705752,"Big Lake, MN",Big Lake,Big Lake,Sherburne,MN,06000US2714105752,"Big Lake city, Sherburne County, MN",,Exurbs,y
-Becker,16000US2704618,"Becker, MN",Becker,Becker,Sherburne,MN,06000US2714104618,"Becker city, Sherburne County, MN",,Exurbs,y
-Zimmerman,16000US2772238,"Zimmerman, MN",Zimmerman,Zimmerman,"Sherburne, Isanti",MN,06000US2714172238,"Zimmerman city, Sherburne County, MN",2,Exurbs,y
-Winthrop,16000US2771122,"Winthrop, MN",Winthrop,,Sibley,MN,06000US2714371122,"Winthrop city, Sibley County, MN",,Exurbs,n
-New Auburn,16000US2745376,"New Auburn, MN",New Auburn,,Sibley,MN,06000US2714345376,"New Auburn city, Sibley County, MN",,Exurbs,n
-Green Isle,16000US2725658,"Green Isle, MN",Green Isle,,Sibley,MN,06000US2714325658,"Green Isle city, Sibley County, MN",,Exurbs,n
-Gibbon,16000US2723678,"Gibbon, MN",Gibbon,,Sibley,MN,06000US2714323678,"Gibbon city, Sibley County, MN",,Exurbs,n
-Gaylord,16000US2723300,"Gaylord, MN",Gaylord,,Sibley,MN,06000US2714323300,"Gaylord city, Sibley County, MN",,Exurbs,n
-Arlington,16000US2702152,"Arlington, MN",Arlington,,Sibley,MN,06000US2714302152,"Arlington city, Sibley County, MN",,Exurbs,n
-Woodville,16000US5589025,"Woodville, WI",Woodville,Woodville,St. Croix,WI,06000US5510989025,"Woodville village, St. Croix County, WI",,Exurbs,n
-Wilson,16000US5587475,"Wilson, WI",Wilson,Wilson,St. Croix,WI,06000US5510987475,"Wilson village, St. Croix County, WI",,Exurbs,n
-Star Prairie,16000US5576825,"Star Prairie, WI",Star Prairie,,St. Croix,WI,06000US5510976825,"Star Prairie village, St. Croix County, WI",,Exurbs,n
-Somerset,16000US5574675,"Somerset, WI",Somerset,Somerset,St. Croix,WI,06000US5510974675,"Somerset village, St. Croix County, WI",,Exurbs,y
-Roberts,16000US5568475,"Roberts, WI",Roberts,Roberts,St. Croix,WI,06000US5510968475,"Roberts village, St. Croix County, WI",,Exurbs,n
-North Hudson,16000US5558050,"North Hudson, WI",North Hudson,,St. Croix,WI,06000US5510958050,"North Hudson village, St. Croix County, WI",,Exurbs,n
-New Richmond,16000US5557100,"New Richmond, WI",New Richmond,New Richmond,St. Croix,WI,06000US5510957100,"New Richmond city, St. Croix County, WI",,Exurbs,y
-Hudson,16000US5536250,"Hudson, WI",Hudson,Hudson,St. Croix,WI,06000US5510936250,"Hudson city, St. Croix County, WI",,Exurbs,y
-Houlton,16000US5535900,"Houlton, WI",,,St. Croix,WI,,Houlton CDP,,Exurbs,n
-Hammond,16000US5532325,"Hammond, WI",Hammond,Hammond,St. Croix,WI,06000US5510932325,"Hammond village, St. Croix County, WI",,Exurbs,y
-Glenwood City,16000US5529625,"Glenwood City, WI",Glenwood City,Glenwood City,St. Croix,WI,06000US5510929625,"Glenwood City city, St. Croix County, WI",,Exurbs,n
-Emerald,16000US5523900,"Emerald, WI",Emerald,,St. Croix,WI,06000US5510923925,"Emerald town, St. Croix County, WI",,Exurbs,n
-Deer Park,16000US5519325,"Deer Park, WI",Deer Park,Deer Park,St. Croix,WI,06000US5510919325,"Deer Park village, St. Croix County, WI",,Exurbs,n
-Baldwin,16000US5504400,"Baldwin, WI",Baldwin,Baldwin,"St. Croix, Pierce",WI,06000US5510904400,"Baldwin village, St. Croix County, WI",2,Exurbs,n
-Woodbury,16000US2771428,"Woodbury, MN",Woodbury,Woodbury,Washington,MN,06000US2716371428,"Woodbury city, Washington County, MN",,inner suburbs,y
-Willernie,16000US2770366,"Willernie, MN",Willernie,Willernie,Washington,MN,06000US2716370366,"Willernie city, Washington County, MN",,inner suburbs,y
-Stillwater,16000US2762824,"Stillwater, MN",Stillwater,Stillwater,Washington,MN,06000US2716362824,"Stillwater city, Washington County, MN",,outer suburbs,y
-Saint Paul Park,16000US2758018,"St. Paul Park, MN",St. Paul Park,Saint Paul Park,Washington,MN,06000US2716358018,"St. Paul Park city, Washington County, MN",,inner suburbs,y
-Saint Mary's Point,16000US2757292,"St. Marys Point, MN",St. Marys Point,,Washington,MN,06000US2716357292,"St. Marys Point city, Washington County, MN",,outer suburbs,y
-Pine Springs,16000US2751316,"Pine Springs, MN",Pine Springs,,Washington,MN,06000US2716351316,"Pine Springs city, Washington County, MN",,inner suburbs,y
-Oak Park Heights,16000US2747914,"Oak Park Heights, MN",Oak Park Heights,,Washington,MN,06000US2716347914,"Oak Park Heights city, Washington County, MN",,outer suburbs,y
-Oakdale,16000US2747680,"Oakdale, MN",Oakdale,Oakdale,Washington,MN,06000US2716347680,"Oakdale city, Washington County, MN",,inner suburbs,y
-Newport,16000US2745790,"Newport, MN",Newport,Newport,Washington,MN,06000US2716345790,"Newport city, Washington County, MN",,inner suburbs,y
-Marine on Saint Croix,16000US2740562,"Marine on St. Croix, MN",Marine on St. Croix,Marine on Saint Croix,Washington,MN,06000US2716340562,"Marine on St. Croix city, Washington County, MN",,outer suburbs,y
-Mahtomedi,16000US2739428,"Mahtomedi, MN",Mahtomedi,Mahtomedi,Washington,MN,06000US2716339428,"Mahtomedi city, Washington County, MN",,inner suburbs,y
-Lake Saint Croix Beach,16000US2734865,"Lake St. Croix Beach, MN",Lake St. Croix Beach,,Washington,MN,06000US2716334865,"Lake St. Croix Beach city, Washington County, MN",,outer suburbs,y
-Lakeland Shores,16000US2734658,"Lakeland Shores, MN",Lakeland Shores,,Washington,MN,06000US2716334658,"Lakeland Shores city, Washington County, MN",,outer suburbs,y
-Lakeland,16000US2734622,"Lakeland, MN",Lakeland,Lakeland,Washington,MN,06000US2716334622,"Lakeland city, Washington County, MN",,outer suburbs,y
-Lake Elmo,16000US2734244,"Lake Elmo, MN",Lake Elmo,Lake Elmo,Washington,MN,06000US2716334244,"Lake Elmo city, Washington County, MN",,outer suburbs,y
-Hugo,16000US2730392,"Hugo, MN",Hugo,Hugo,Washington,MN,06000US2716330392,"Hugo city, Washington County, MN",,outer suburbs,y
-Grant,16000US2725334,"Grant, MN",Grant,,Washington,MN,06000US2716325334,"Grant city, Washington County, MN",,outer suburbs,y
-Cottage Grove,16000US2713456,"Cottage Grove, MN",Cottage Grove,Cottage Grove,Washington,MN,06000US2716313456,"Cottage Grove city, Washington County, MN",,outer suburbs,y
-Birchwood Village,16000US2706058,"Birchwood Village, MN",Birchwood Village,,Washington,MN,06000US2716306058,"Birchwood Village city, Washington County, MN",,outer suburbs,y
-Bayport,16000US2704114,"Bayport, MN",Bayport,Bayport,Washington,MN,06000US2716304114,"Bayport city, Washington County, MN",,outer suburbs,y
-Afton,16000US2700316,"Afton, MN",Afton,Afton,Washington,MN,06000US2716300316,"Afton city, Washington County, MN",,outer suburbs,y
-Waverly,16000US2768764,"Waverly, MN",Waverly,,Wright,MN,06000US2717168764,"Waverly city, Wright County, MN",,Exurbs,n
-South Haven,16000US2761402,"South Haven, MN",South Haven,,Wright,MN,06000US2717161402,"South Haven city, Wright County, MN",,Exurbs,y
-Saint Michael,16000US2757346,"St. Michael, MN",St. Michael,,Wright,MN,06000US2717157346,"St. Michael city, Wright County, MN",,Exurbs,y
-Montrose,16000US2743810,"Montrose, MN",Montrose,,Wright,MN,06000US2717143810,"Montrose city, Wright County, MN",,Exurbs,y
-Monticello,16000US2743774,"Monticello, MN",Monticello,,Wright,MN,06000US2717143774,"Monticello city, Wright County, MN",,Exurbs,y
-Maple Lake,16000US2740220,"Maple Lake, MN",Maple Lake,,Wright,MN,06000US2717140220,"Maple Lake city, Wright County, MN",,Exurbs,y
-Howard Lake,16000US2730284,"Howard Lake, MN",Howard Lake,,Wright,MN,06000US2717130284,"Howard Lake city, Wright County, MN",,Exurbs,n
-Cokato,16000US2712430,"Cokato, MN",Cokato,,Wright,MN,06000US2717112430,"Cokato city, Wright County, MN",,Exurbs,y
-Clearwater,16000US2711800,"Clearwater, MN",Clearwater,,Wright,MN,06000US2717111800,"Clearwater city, Wright County, MN",2,Exurbs,y
-Buffalo,16000US2708452,"Buffalo, MN",Buffalo,,Wright,MN,06000US2717108452,"Buffalo city, Wright County, MN",,Exurbs,y
-Annandale,16000US2701684,"Annandale, MN",Annandale,,Wright,MN,06000US2717101684,"Annandale city, Wright County, MN",,Exurbs,y
-Albertville,16000US2700730,"Albertville, MN",Albertville,,Wright,MN,06000US2717100730,"Albertville city, Wright County, MN",,Exurbs,y
-Minneapolis-St. Paul Metro Area,16000US2733460,Minneapolis-St. Paul Metro Area,,,,,,,,Metro,y
+stribID,NameInRealtorsData,GEOID,FullName,CityName,ZillowName,COUNTY,STATE,subdiv_geoid,subdiv_full_name,multiplecounties,location,County13,type,neighborhoodname
+1,Andover,16000US2701486,"Andover, MN",Andover,Andover,Anoka,MN,06000US2700301486,"Andover city, Anoka County, MN",,outer suburbs,y,city,
+2,Ramsey,16000US2753026,"Ramsey, MN",Ramsey,Ramsey,Anoka,MN,06000US2700353026,"Ramsey city, Anoka County, MN",,outer suburbs,y,city,
+3,Oak Grove,16000US2747690,"Oak Grove, MN",Oak Grove,,Anoka,MN,06000US2700347690,"Oak Grove city, Anoka County, MN",,outer suburbs,y,city,
+4,Nowthen,16000US2747536,"Nowthen, MN",Nowthen,,Anoka,MN,06000US2700347536,"Nowthen city, Anoka County, MN",,outer suburbs,y,city,
+5,Lino Lakes,16000US2737322,"Lino Lakes, MN",Lino Lakes,Lino Lakes,Anoka,MN,06000US2700337322,"Lino Lakes city, Anoka County, MN",,outer suburbs,y,city,
+6,Lexington,16000US2736836,"Lexington, MN",Lexington,,Anoka,MN,06000US2700336836,"Lexington city, Anoka County, MN",,outer suburbs,y,city,
+7,Hilltop,16000US2729258,"Hilltop, MN",Hilltop,,Anoka,MN,06000US2700329258,"Hilltop city, Anoka County, MN",,outer suburbs,y,city,
+8,Ham Lake,16000US2726738,"Ham Lake, MN",Ham Lake,,Anoka,MN,06000US2700326738,"Ham Lake city, Anoka County, MN",,outer suburbs,y,city,
+9,Fridley,16000US2722814,"Fridley, MN",Fridley,Fridley,Anoka,MN,06000US2700322814,"Fridley city, Anoka County, MN",,outer suburbs,y,city,
+10,East Bethel,16000US2717486,"East Bethel, MN",East Bethel,East Bethel,Anoka,MN,06000US2700317486,"East Bethel city, Anoka County, MN",,outer suburbs,y,city,
+11,Coon Rapids,16000US2713114,"Coon Rapids, MN",Coon Rapids,Coon Rapids,Anoka,MN,06000US2700313114,"Coon Rapids city, Anoka County, MN",,outer suburbs,y,city,
+12,Columbus,16000US2712718,"Columbus, MN",Columbus,,Anoka,MN,06000US2700312718,"Columbus city, Anoka County, MN",,outer suburbs,y,city,
+13,Columbia Heights,16000US2712700,"Columbia Heights, MN",Columbia Heights,Columbia Heights,Anoka,MN,06000US2700312700,"Columbia Heights city, Anoka County, MN",,inner suburbs,y,city,
+14,Circle Pines,16000US2711494,"Circle Pines, MN",Circle Pines,,Anoka,MN,06000US2700311494,"Circle Pines city, Anoka County, MN",,outer suburbs,y,city,
+15,Blaine,16000US2706382,"Blaine, MN",Blaine,Blaine,Anoka,MN,06000US2700306382,"Blaine city, Anoka County, MN",2,outer suburbs,y,city,
+16,Anoka,16000US2701720,"Anoka, MN",Anoka,,Anoka,MN,06000US2700301720,"Anoka city, Anoka County, MN",,outer suburbs,y,city,
+17,Wyoming,16000US2772022,"Wyoming, MN",Wyoming,Wyoming,"Anoka, Chisago",MN,06000US2702572022,"Wyoming city, Chisago County, MN",2,Exurbs,y,city,
+18,Stacy,16000US2762320,"Stacy, MN",Stacy,Stacy,"Anoka, Chisago, Isanti",MN,06000US2702562320,"Stacy city, Chisago County, MN",,Exurbs,y,city,
+19,Forest Lake,16000US2721770,"Forest Lake, MN",Forest Lake,Forest Lake,"Anoka, Chisago, Washington",MN,06000US2716321770,"Forest Lake city, Washington County, MN",3,Exurbs,y,city,
+20,Saint Francis,16000US2756950,"St. Francis, MN",St. Francis,Saint Francis,"Anoka, Isanti",MN,06000US2700356950,"St. Francis city, Anoka County, MN",2,Exurbs,y,city,
+21,Bethel,16000US2705554,"Bethel, MN",Bethel,,"Anoka, Isanti",MN,06000US2700305554,"Bethel city, Anoka County, MN",,Exurbs,y,city,
+22,Spring Lake Park,16000US2761996,"Spring Lake Park, MN",Spring Lake Park,,"Anoka, Ramsey",MN,06000US2700361996,"Spring Lake Park city, Anoka County, MN",2,inner suburbs,y,city,
+23,Elk River,16000US2718674,"Elk River, MN",Elk River,Elk River,"Anoka, Sherburne",MN,06000US2714118674,"Elk River city, Sherburne County, MN",2,Exurbs,y,city,
+24,Centerville,16000US2710648,"Centerville, MN",Centerville,,"Anoka, Washington",MN,06000US2700310648,"Centerville city, Anoka County, MN",2,outer suburbs,y,city,
+25,Otsego,16000US2749138,"Otsego, MN",Otsego,,"Anoka, Wright",MN,06000US2717149138,"Otsego city, Wright County, MN",2,Exurbs,y,city,
+26,Waconia,16000US2767432,"Waconia, MN",Waconia,Waconia,Carver,MN,06000US2701967432,"Waconia city, Carver County, MN",,outer suburbs,y,city,
+27,Victoria,16000US2767036,"Victoria, MN",Victoria,Victoria,Carver,MN,06000US2701967036,"Victoria city, Carver County, MN",,outer suburbs,y,city,
+28,Norwood Young America,16000US2747520,"Norwood Young America, MN",Norwood Young America,Norwood Young America,Carver,MN,06000US2701947520,"Norwood Young America city, Carver County, MN",,outer suburbs,y,city,
+29,New Germany,16000US2745556,"New Germany, MN",New Germany,New Germany,Carver,MN,06000US2701945556,"New Germany city, Carver County, MN",,outer suburbs,y,city,
+30,Mayer,16000US2741138,"Mayer, MN",Mayer,Mayer,Carver,MN,06000US2701941138,"Mayer city, Carver County, MN",,outer suburbs,y,city,
+31,Cologne,16000US2712664,"Cologne, MN",Cologne,Cologne,Carver,MN,06000US2701912664,"Cologne city, Carver County, MN",,outer suburbs,y,city,
+32,Carver,16000US2710144,"Carver, MN",Carver,Carver,Carver,MN,06000US2701910144,"Carver city, Carver County, MN",,outer suburbs,y,city,
+33,Chanhassen,16000US2710918,"Chanhassen, MN",Chanhassen,Chanhassen,"Carver, Hennepin",MN,06000US2701910918,"Chanhassen city, Carver County, MN",2,outer suburbs,y,city,
+34,Chaska,16000US2710972,"Chaska, MN",Chaska,Chaska,"Carver, Scott",MN,06000US2701910972,"Chaska city, Carver County, MN",2,outer suburbs,y,city,
+35,Hamburg,16000US2726666,"Hamburg, MN",Hamburg,Hamburg,"Carver, Sibley",MN,06000US2701926666,"Hamburg city, Carver County, MN",2,Exurbs,y,city,
+36,Watertown,16000US2768548,"Watertown, MN",Watertown,Watertown,"Carver, Wright",MN,06000US2701968548,"Watertown city, Carver County, MN",2,Exurbs,y,city,
+37,Delano,16000US2715454,"Delano, MN",Delano,,"Carver, Wright",MN,06000US2717115454,"Delano city, Wright County, MN",2,Exurbs,y,city,
+38,Taylors Falls,16000US2764318,"Taylors Falls, MN",Taylors Falls,Taylors Falls,Chisago,MN,06000US2702564318,"Taylors Falls city, Chisago County, MN",,Exurbs,n,city,
+39,Shafer,16000US2759314,"Shafer, MN",Shafer,Shafer,Chisago,MN,06000US2702559314,"Shafer city, Chisago County, MN",,Exurbs,n,city,
+40,Rush City,16000US2756266,"Rush City, MN",Rush City,Rush City,Chisago,MN,06000US2702556266,"Rush City city, Chisago County, MN",,Exurbs,y,city,
+41,Lindstrom,16000US2737304,"Lindstrom, MN",Lindstrom,Lindstrom,Chisago,MN,06000US2702537304,"Lindstrom city, Chisago County, MN",,Exurbs,y,city,
+42,Harris,16000US2727278,"Harris, MN",Harris,Harris,Chisago,MN,06000US2702527278,"Harris city, Chisago County, MN",,Exurbs,n,city,
+43,Chisago City,16000US2711350,"Chisago City, MN",Chisago City,Chisago City,Chisago,MN,06000US2702511350,"Chisago City city, Chisago County, MN",,Exurbs,n,city,
+44,Center City,16000US2710576,"Center City, MN",Center City,Center City,Chisago,MN,06000US2702510576,"Center City city, Chisago County, MN",,Exurbs,n,city,
+45,North Branch,16000US2746798,"North Branch, MN",North Branch,North Branch,"Chisago, Isanti",MN,06000US2702546798,"North Branch city, Chisago County, MN",2,Exurbs,y,city,
+46,Cambridge,16000US2709370,"Cambridge, MN",Cambridge,Cambridge,"Chisago, Isanti",MN,06000US2705909370,"Cambridge city, Isanti County, MN",2,Exurbs,y,city,
+47,Braham,16000US2707282,"Braham, MN",Braham,Braham,"Chisago, Isanti",MN,06000US2705907282,"Braham city, Isanti County, MN",2,Exurbs,n,city,
+48,Scandia,16000US2758900,"Scandia, MN",Scandia,Scandia,"Chisago, Washington",MN,06000US2716358900,"Scandia city, Washington County, MN",2,Exurbs,y,city,
+49,Vermillion,16000US2766802,"Vermillion, MN",Vermillion,Vermillion,Dakota,MN,06000US2703766802,"Vermillion city, Dakota County, MN",,outer suburbs,y,city,
+50,Sunfish Lake,16000US2763544,"Sunfish Lake, MN",Sunfish Lake,,Dakota,MN,06000US2703763544,"Sunfish Lake city, Dakota County, MN",,inner suburbs,y,city,
+51,South Saint Paul,16000US2761492,"South St. Paul, MN",South St. Paul,South Saint Paul,Dakota,MN,06000US2703761492,"South St. Paul city, Dakota County, MN",,inner suburbs,y,city,
+52,Rosemount,16000US2755726,"Rosemount, MN",Rosemount,Rosemount,Dakota,MN,06000US2703755726,"Rosemount city, Dakota County, MN",,outer suburbs,y,city,
+53,Randolph,16000US2753098,"Randolph, MN",Randolph,Randolph,Dakota,MN,06000US2703753098,"Randolph city, Dakota County, MN",,outer suburbs,y,city,
+54,New Trier,16000US2746024,"New Trier, MN",New Trier,,Dakota,MN,06000US2703746024,"New Trier city, Dakota County, MN",,outer suburbs,y,city,
+55,Miesville,16000US2742092,"Miesville, MN",Miesville,,Dakota,MN,06000US2703742092,"Miesville city, Dakota County, MN",,outer suburbs,y,city,
+56,Mendota Heights,16000US2741696,"Mendota Heights, MN",Mendota Heights,Mendota Heights,Dakota,MN,06000US2703741696,"Mendota Heights city, Dakota County, MN",,inner suburbs,y,city,
+57,Mendota,16000US2741678,"Mendota, MN",Mendota,Mendota,Dakota,MN,06000US2703741678,"Mendota city, Dakota County, MN",,inner suburbs,y,city,
+58,Lilydale,16000US2737016,"Lilydale, MN",Lilydale,,Dakota,MN,06000US2703737016,"Lilydale city, Dakota County, MN",,inner suburbs,y,city,
+59,Hampton,16000US2726864,"Hampton, MN",Hampton,Hampton,Dakota,MN,06000US2703726864,"Hampton city, Dakota County, MN",,outer suburbs,y,city,
+60,Farmington,16000US2720618,"Farmington, MN",Farmington,Farmington,Dakota,MN,06000US2703720618,"Farmington city, Dakota County, MN",,outer suburbs,y,city,
+61,Eagan,16000US2717288,"Eagan, MN",Eagan,Eagan,Dakota,MN,06000US2703717288,"Eagan city, Dakota County, MN",,inner suburbs,y,city,
+62,Coates,16000US2712376,"Coates, MN",Coates,,Dakota,MN,06000US2703712376,"Coates city, Dakota County, MN",,outer suburbs,y,city,
+63,Burnsville,16000US2708794,"Burnsville, MN",Burnsville,Burnsville,Dakota,MN,06000US2703708794,"Burnsville city, Dakota County, MN",,inner suburbs,y,city,
+64,Apple Valley,16000US2701900,"Apple Valley, MN",Apple Valley,Apple Valley,Dakota,MN,06000US2703701900,"Apple Valley city, Dakota County, MN",,inner suburbs,y,city,
+65,Inver Grove Heights,16000US2731076,"Inver Grove Heights, MN",Inver Grove Heights,Inver Grove Heights,"Dakota, Ramsey",MN,06000US2703731076,"Inver Grove Heights city, Dakota County, MN",,inner suburbs,y,city,
+66,Lakeville,16000US2735180,"Lakeville, MN",Lakeville,Lakeville,"Dakota, Scott",MN,06000US2703735180,"Lakeville city, Dakota County, MN",2,outer suburbs,y,city,
+67,Hastings,16000US2727530,"Hastings, MN",Hastings,Hastings,"Dakota, Washington",MN,06000US2703727530,"Hastings city, Dakota County, MN",2,outer suburbs,y,city,
+68,Woodland,16000US2771500,"Woodland, MN",Woodland,,Hennepin,MN,06000US2705371500,"Woodland city, Hennepin County, MN",,inner suburbs,y,city,
+69,Wayzata,16000US2768818,"Wayzata, MN",Wayzata,Wayzata,Hennepin,MN,06000US2705368818,"Wayzata city, Hennepin County, MN",,inner suburbs,y,city,
+70,Tonka Bay,16000US2765164,"Tonka Bay, MN",Tonka Bay,,Hennepin,MN,06000US2705365164,"Tonka Bay city, Hennepin County, MN",,inner suburbs,y,city,
+71,Spring Park,16000US2762014,"Spring Park, MN",Spring Park,Spring Park,Hennepin,MN,06000US2705362014,"Spring Park city, Hennepin County, MN",,inner suburbs,y,city,
+72,Shorewood,16000US2760016,"Shorewood, MN",Shorewood,Shorewood,Hennepin,MN,06000US2705360016,"Shorewood city, Hennepin County, MN",,inner suburbs,y,city,
+73,Saint Louis Park,16000US2757220,"St. Louis Park, MN",St. Louis Park,Saint Louis Park,Hennepin,MN,06000US2705357220,"St. Louis Park city, Hennepin County, MN",,inner suburbs,y,city,
+74,Saint Bonifacius,16000US2756770,"St. Bonifacius, MN",St. Bonifacius,Saint Bonifacius,Hennepin,MN,06000US2705356770,"St. Bonifacius city, Hennepin County, MN",,outer suburbs,y,city,
+75,Rogers,16000US2755186,"Rogers, MN",Rogers,Rogers,Hennepin,MN,06000US2705355186,"Rogers city, Hennepin County, MN",,outer suburbs,y,city,
+76,Robbinsdale,16000US2754808,"Robbinsdale, MN",Robbinsdale,Robbinsdale,Hennepin,MN,06000US2705354808,"Robbinsdale city, Hennepin County, MN",,inner suburbs,y,city,
+77,Richfield,16000US2754214,"Richfield, MN",Richfield,Richfield,Hennepin,MN,06000US2705354214,"Richfield city, Hennepin County, MN",,inner suburbs,y,city,
+78,Plymouth,16000US2751730,"Plymouth, MN",Plymouth,Plymouth,Hennepin,MN,06000US2705351730,"Plymouth city, Hennepin County, MN",,inner suburbs,y,city,
+79,Osseo,16000US2749012,"Osseo, MN",Osseo,,Hennepin,MN,06000US2705349012,"Osseo city, Hennepin County, MN",,inner suburbs,y,city,
+80,Orono,16000US2748580,"Orono, MN",Orono,Orono,Hennepin,MN,06000US2705348580,"Orono city, Hennepin County, MN",,outer suburbs,y,city,
+81,New Hope,16000US2745628,"New Hope, MN",New Hope,New Hope,Hennepin,MN,06000US2705345628,"New Hope city, Hennepin County, MN",,inner suburbs,y,city,
+82,Mound,16000US2744476,"Mound, MN",Mound,Mound,Hennepin,MN,06000US2705344476,"Mound city, Hennepin County, MN",,outer suburbs,y,city,
+83,Minnetrista,16000US2743306,"Minnetrista, MN",Minnetrista,,Hennepin,MN,06000US2705343306,"Minnetrista city, Hennepin County, MN",,outer suburbs,y,city,
+84,Minnetonka Beach,16000US2743270,"Minnetonka Beach, MN",Minnetonka Beach,,Hennepin,MN,06000US2705343270,"Minnetonka Beach city, Hennepin County, MN",,inner suburbs,y,city,
+85,Minnetonka,16000US2743252,"Minnetonka, MN",Minnetonka,Minnetonka,Hennepin,MN,06000US2705343252,"Minnetonka city, Hennepin County, MN",,inner suburbs,y,city,
+86,Minneapolis,16000US2743000,"Minneapolis, MN",Minneapolis,Minneapolis,Hennepin,MN,06000US2705343000,"Minneapolis city, Hennepin County, MN",,core cities,y,city,
+87,Medina,16000US2741480,"Medina, MN",Medina,Medina,Hennepin,MN,06000US2705341480,"Medina city, Hennepin County, MN",,outer suburbs,y,city,
+88,Medicine Lake,16000US2741462,"Medicine Lake, MN",Medicine Lake,,Hennepin,MN,06000US2705341462,"Medicine Lake city, Hennepin County, MN",,inner suburbs,y,city,
+89,Maple Plain,16000US2740256,"Maple Plain, MN",Maple Plain,,Hennepin,MN,06000US2705340256,"Maple Plain city, Hennepin County, MN",,outer suburbs,y,city,
+90,Maple Grove,16000US2740166,"Maple Grove, MN",Maple Grove,Maple Grove,Hennepin,MN,06000US2705340166,"Maple Grove city, Hennepin County, MN",,inner suburbs,y,city,
+91,Loretto,16000US2738222,"Loretto, MN",Loretto,,Hennepin,MN,06000US2705338222,"Loretto city, Hennepin County, MN",,outer suburbs,y,city,
+92,Long Lake,16000US2738006,"Long Lake, MN",Long Lake,,Hennepin,MN,06000US2705338006,"Long Lake city, Hennepin County, MN",,outer suburbs,y,city,
+93,Independence,16000US2730842,"Independence, MN",Independence,Independence,Hennepin,MN,06000US2705330842,"Independence city, Hennepin County, MN",,outer suburbs,y,city,
+94,Hopkins,16000US2730140,"Hopkins, MN",Hopkins,Hopkins,Hennepin,MN,06000US2705330140,"Hopkins city, Hennepin County, MN",,inner suburbs,y,city,
+95,Greenwood,16000US2725918,"Greenwood, MN",Greenwood,,Hennepin,MN,06000US2705325918,"Greenwood city, Hennepin County, MN",,inner suburbs,y,city,
+96,Greenfield,16000US2725622,"Greenfield, MN",Greenfield,Greenfield,Hennepin,MN,06000US2705325622,"Greenfield city, Hennepin County, MN",,outer suburbs,y,city,
+97,Golden Valley,16000US2724308,"Golden Valley, MN",Golden Valley,Golden Valley,Hennepin,MN,06000US2705324308,"Golden Valley city, Hennepin County, MN",,inner suburbs,y,city,
+98,Excelsior,16000US2720078,"Excelsior, MN",Excelsior,,Hennepin,MN,06000US2705320078,"Excelsior city, Hennepin County, MN",,inner suburbs,y,city,
+99,Edina,16000US2718188,"Edina, MN",Edina,Edina,Hennepin,MN,06000US2705318188,"Edina city, Hennepin County, MN",,inner suburbs,y,city,
+100,Eden Prairie,16000US2718116,"Eden Prairie, MN",Eden Prairie,Eden Prairie,Hennepin,MN,06000US2705318116,"Eden Prairie city, Hennepin County, MN",,inner suburbs,y,city,
+101,Deephaven,16000US2715148,"Deephaven, MN",Deephaven,,Hennepin,MN,06000US2705315148,"Deephaven city, Hennepin County, MN",,inner suburbs,y,city,
+102,Crystal,16000US2714158,"Crystal, MN",Crystal,,Hennepin,MN,06000US2705314158,"Crystal city, Hennepin County, MN",,inner suburbs,y,city,
+103,Corcoran,16000US2713168,"Corcoran, MN",Corcoran,,Hennepin,MN,06000US2705313168,"Corcoran city, Hennepin County, MN",,outer suburbs,y,city,
+104,Champlin,16000US2710846,"Champlin, MN",Champlin,Champlin,Hennepin,MN,06000US2705310846,"Champlin city, Hennepin County, MN",,inner suburbs,y,city,
+105,Brooklyn Park,16000US2707966,"Brooklyn Park, MN",Brooklyn Park,Brooklyn Park,Hennepin,MN,06000US2705307966,"Brooklyn Park city, Hennepin County, MN",,inner suburbs,y,city,
+106,Brooklyn Center,16000US2707948,"Brooklyn Center, MN",Brooklyn Center,Brooklyn Center,Hennepin,MN,06000US2705307948,"Brooklyn Center city, Hennepin County, MN",,inner suburbs,y,city,
+107,Bloomington,16000US2706616,"Bloomington, MN",Bloomington,Bloomington,Hennepin,MN,06000US2705306616,"Bloomington city, Hennepin County, MN",,inner suburbs,y,city,
+108,Saint Anthony,16000US2756680,"St. Anthony, MN",St. Anthony,,"Hennepin, Ramsey",MN,06000US2705356680,"St. Anthony city, Hennepin County, MN",2,inner suburbs,y,city,
+109,Rockford,16000US2755006,"Rockford, MN",Rockford,Rockford,"Hennepin, Wright",MN,06000US2717155006,"Rockford city, Wright County, MN",2,Exurbs,y,city,
+110,Hanover,16000US2726990,"Hanover, MN",Hanover,Hanover,"Hennepin, Wright",MN,06000US2717126990,"Hanover city, Wright County, MN",2,Exurbs,y,city,
+111,Dayton,16000US2715022,"Dayton, MN",Dayton,Dayton,"Hennepin, Wright",MN,06000US2705315022,"Dayton city, Hennepin County, MN",2,Exurbs,y,city,
+112,Isanti,16000US2731328,"Isanti, MN",Isanti,Isanti,Isanti,MN,06000US2705931328,"Isanti city, Isanti County, MN",,Exurbs,y,city,
+113,Princeton,16000US2752522,"Princeton, MN",Princeton,Princeton,"Isanti, Mille Lcs, Sherburne",MN,06000US2709552522,"Princeton city, Mille Lacs County, MN",2,Exurbs,y,city,
+114,Waterville,16000US2768584,"Waterville, MN",Waterville,,Le Sueur,MN,06000US2707968584,"Waterville city, Le Sueur County, MN",,Exurbs,n,city,
+115,Montgomery,16000US2743738,"Montgomery, MN",Montgomery,,Le Sueur,MN,06000US2707943738,"Montgomery city, Le Sueur County, MN",,Exurbs,n,city,
+116,Le Center,16000US2736134,"Le Center, MN",Le Center,,Le Sueur,MN,06000US2707936134,"Le Center city, Le Sueur County, MN",,Exurbs,n,city,
+117,Kilkenny,16000US2733110,"Kilkenny, MN",Kilkenny,,Le Sueur,MN,06000US2707933110,"Kilkenny city, Le Sueur County, MN",,Exurbs,n,city,
+118,Kasota,16000US2732462,"Kasota, MN",Kasota,,Le Sueur,MN,06000US2707932462,"Kasota city, Le Sueur County, MN",,Exurbs,n,city,
+119,Elysian,16000US2719160,"Elysian, MN",Elysian,,Le Sueur,MN,06000US2707919160,"Elysian city, Le Sueur County, MN",,Exurbs,n,city,
+120,Cleveland,16000US2711872,"Cleveland, MN",Cleveland,,Le Sueur,MN,06000US2707911872,"Cleveland city, Le Sueur County, MN",,Exurbs,n,city,
+121,New Prague,16000US2745808,"New Prague, MN",New Prague,New Prague,"Le Sueur, Scott",MN,06000US2713945808,"New Prague city, Scott County, MN",2,Exurbs,n,city,
+122,Le Sueur,16000US2736746,"Le Sueur, MN",Le Sueur,,"Le Sueur, Sibley",MN,06000US2707936746,"Le Sueur city, Le Sueur County, MN",3,Exurbs,n,city,
+123,Henderson,16000US2728394,"Henderson, MN",Henderson,,"Le Sueur, Sibley",MN,06000US2714328394,"Henderson city, Sibley County, MN",,Exurbs,n,city,
+124,Wahkon,16000US2767558,"Wahkon, MN",Wahkon,Wahkon,Mille Lacs,MN,06000US2709567558,"Wahkon city, Mille Lacs County, MN",,Exurbs,n,city,
+125,Pease,16000US2750056,"Pease, MN",Pease,Pease,Mille Lacs,MN,06000US2709550056,"Pease city, Mille Lacs County, MN",,Exurbs,n,city,
+126,Onamia,16000US2748310,"Onamia, MN",Onamia,Onamia,Mille Lacs,MN,06000US2709548310,"Onamia city, Mille Lacs County, MN",,Exurbs,n,city,
+127,Isle,16000US2731472,"Isle, MN",Isle,Isle,Mille Lacs,MN,06000US2709531472,"Isle city, Mille Lacs County, MN",,Exurbs,n,city,
+128,Foreston,16000US2721824,"Foreston, MN",Foreston,Foreston,Mille Lacs,MN,06000US2709521824,"Foreston city, Mille Lacs County, MN",,Exurbs,n,city,
+129,Bock,16000US2706814,"Bock, MN",Bock,Bock,Mille Lacs,MN,06000US2709506814,"Bock city, Mille Lacs County, MN",,Exurbs,n,city,
+130,Milaca,16000US2742110,"Milaca, MN",Milaca,Milaca,"Mille Lacs, Isanti",MN,06000US2709542110,"Milaca city, Mille Lacs County, MN",2,Exurbs,n,city,
+131,Prescott,16000US5565375,"Prescott, WI",Prescott,Prescott,Pierce,WI,06000US5509365375,"Prescott city, Pierce County, WI",,Exurbs,n,city,
+132,Plum City,16000US5563600,"Plum City, WI",Plum City,Plum City,Pierce,WI,06000US5509363600,"Plum City village, Pierce County, WI",,Exurbs,n,city,
+133,Maiden Rock,16000US5548175,"Maiden Rock, WI",Maiden Rock,Maiden Rock,Pierce,WI,06000US5509348175,"Maiden Rock village, Pierce County, WI",,Exurbs,n,city,
+134,Elmwood,16000US5523700,"Elmwood, WI",Elmwood,Elmwood,Pierce,WI,06000US5509323700,"Elmwood village, Pierce County, WI",,Exurbs,n,city,
+135,Ellsworth,16000US5523525,"Ellsworth, WI",Ellsworth,Ellsworth,Pierce,WI,06000US5509323525,"Ellsworth village, Pierce County, WI",,Exurbs,n,city,
+136,Diamond Bluff,16000US5520125,"Diamond Bluff, WI",Diamond Bluff,,Pierce,WI,06000US5509320150,"Diamond Bluff town, Pierce County, WI",,Exurbs,n,city,
+137,Bay City,16000US5505325,"Bay City, WI",Bay City,Bay City,Pierce,WI,06000US5509305325,"Bay City village, Pierce County, WI",,Exurbs,n,city,
+138,Spring Valley,16000US5576300,"Spring Valley, WI",Spring Valley,Spring Valley,"Pierce, St. Croix",WI,06000US5509376300,"Spring Valley village, Pierce County, WI",2,Exurbs,n,city,
+139,River Falls,16000US5568275,"River Falls, WI",River Falls,River Falls,"Pierce, St. Croix",WI,06000US5509368275,"River Falls city, Pierce County, WI",2,Exurbs,y,city,
+140,Vadnais Heights,16000US2766460,"Vadnais Heights, MN",Vadnais Heights,Vadnais Heights,Ramsey,MN,06000US2712366460,"Vadnais Heights city, Ramsey County, MN",,inner suburbs,y,city,
+141,Shoreview,16000US2759998,"Shoreview, MN",Shoreview,Shoreview,Ramsey,MN,06000US2712359998,"Shoreview city, Ramsey County, MN",,inner suburbs,y,city,
+142,Roseville,16000US2755852,"Roseville, MN",Roseville,Roseville,Ramsey,MN,06000US2712355852,"Roseville city, Ramsey County, MN",,inner suburbs,y,city,
+143,North Saint Paul,16000US2747221,"North St. Paul, MN",North St. Paul,,Ramsey,MN,06000US2712347221,"North St. Paul city, Ramsey County, MN",,inner suburbs,y,city,
+144,North Oaks,16000US2747104,"North Oaks, MN",North Oaks,,Ramsey,MN,06000US2712347104,"North Oaks city, Ramsey County, MN",,inner suburbs,y,city,
+145,New Brighton,16000US2745430,"New Brighton, MN",New Brighton,New Brighton,Ramsey,MN,06000US2712345430,"New Brighton city, Ramsey County, MN",,inner suburbs,y,city,
+146,Mounds View,16000US2744530,"Mounds View, MN",Mounds View,,Ramsey,MN,06000US2712344530,"Mounds View city, Ramsey County, MN",,inner suburbs,y,city,
+147,Maplewood,16000US2740382,"Maplewood, MN",Maplewood,Maplewood,Ramsey,MN,06000US2712340382,"Maplewood city, Ramsey County, MN",,inner suburbs,y,city,
+148,Little Canada,16000US2737502,"Little Canada, MN",Little Canada,,Ramsey,MN,06000US2712337502,"Little Canada city, Ramsey County, MN",,inner suburbs,y,city,
+149,Lauderdale,16000US2735738,"Lauderdale, MN",Lauderdale,,Ramsey,MN,06000US2712335738,"Lauderdale city, Ramsey County, MN",,inner suburbs,y,city,
+150,Gem Lake,16000US2723318,"Gem Lake, MN",Gem Lake,,Ramsey,MN,06000US2712323318,"Gem Lake city, Ramsey County, MN",,inner suburbs,y,city,
+151,Falcon Heights,16000US2720420,"Falcon Heights, MN",Falcon Heights,,Ramsey,MN,06000US2712320420,"Falcon Heights city, Ramsey County, MN",,inner suburbs,y,city,
+152,Arden Hills,16000US2702026,"Arden Hills, MN",Arden Hills,,Ramsey,MN,06000US2712302026,"Arden Hills city, Ramsey County, MN",,inner suburbs,y,city,
+153,West Saint Paul,16000US2769700,"West St. Paul, MN",West St. Paul,West Saint Paul,"Ramsey, Dakota",MN,06000US2703769700,"West St. Paul city, Dakota County, MN",2,inner suburbs,y,city,
+154,Saint Paul,16000US2758000,"St. Paul, MN",St. Paul,Saint Paul,"Ramsey, Dakota",MN,06000US2712358000,"St. Paul city, Ramsey County, MN",2,Core cities,y,city,
+155,White Bear Lake,16000US2769970,"White Bear Lake, MN",White Bear Lake,White Bear Lake,"Ramsey, Washington",MN,06000US2712369970,"White Bear Lake city, Ramsey County, MN",2,inner suburbs,y,city,
+156,Dellwood,16000US2715616,"Dellwood, MN",Dellwood,,"Ramsey, Washington",MN,06000US2716315616,"Dellwood city, Washington County, MN",2,inner suburbs,y,city,
+157,Shakopee,16000US2759350,"Shakopee, MN",Shakopee,Shakopee,Scott,MN,06000US2713959350,"Shakopee city, Scott County, MN",,outer suburbs,y,city,
+158,Savage,16000US2758738,"Savage, MN",Savage,Savage,Scott,MN,06000US2713958738,"Savage city, Scott County, MN",,outer suburbs,y,city,
+159,Prior Lake,16000US2752594,"Prior Lake, MN",Prior Lake,Prior Lake,Scott,MN,06000US2713952594,"Prior Lake city, Scott County, MN",,outer suburbs,y,city,
+160,Jordan,16000US2732174,"Jordan, MN",Jordan,Jordan,Scott,MN,06000US2713932174,"Jordan city, Scott County, MN",,outer suburbs,y,city,
+161,Elko New Market,16000US2718662,"Elko New Market, MN",Elko New Market,Elko New Market,Scott,MN,06000US2713918662,"Elko New Market city, Scott County, MN",,outer suburbs,y,city,
+162,Belle Plaine,16000US2704834,"Belle Plaine, MN",Belle Plaine,Belle Plaine,"Scott, Carver, Le Sueur, Sibley",MN,06000US2713904834,"Belle Plaine city, Scott County, MN",4,Exurbs,y,city,
+163,Clear Lake,16000US2711764,"Clear Lake, MN",Clear Lake,Clear Lake,Sherburne,MN,06000US2714111764,"Clear Lake city, Sherburne County, MN",,Exurbs,y,city,
+164,Big Lake,16000US2705752,"Big Lake, MN",Big Lake,Big Lake,Sherburne,MN,06000US2714105752,"Big Lake city, Sherburne County, MN",,Exurbs,y,city,
+165,Becker,16000US2704618,"Becker, MN",Becker,Becker,Sherburne,MN,06000US2714104618,"Becker city, Sherburne County, MN",,Exurbs,y,city,
+166,Zimmerman,16000US2772238,"Zimmerman, MN",Zimmerman,Zimmerman,"Sherburne, Isanti",MN,06000US2714172238,"Zimmerman city, Sherburne County, MN",2,Exurbs,y,city,
+167,Winthrop,16000US2771122,"Winthrop, MN",Winthrop,,Sibley,MN,06000US2714371122,"Winthrop city, Sibley County, MN",,Exurbs,n,city,
+168,New Auburn,16000US2745376,"New Auburn, MN",New Auburn,,Sibley,MN,06000US2714345376,"New Auburn city, Sibley County, MN",,Exurbs,n,city,
+169,Green Isle,16000US2725658,"Green Isle, MN",Green Isle,,Sibley,MN,06000US2714325658,"Green Isle city, Sibley County, MN",,Exurbs,n,city,
+170,Gibbon,16000US2723678,"Gibbon, MN",Gibbon,,Sibley,MN,06000US2714323678,"Gibbon city, Sibley County, MN",,Exurbs,n,city,
+171,Gaylord,16000US2723300,"Gaylord, MN",Gaylord,,Sibley,MN,06000US2714323300,"Gaylord city, Sibley County, MN",,Exurbs,n,city,
+172,Arlington,16000US2702152,"Arlington, MN",Arlington,,Sibley,MN,06000US2714302152,"Arlington city, Sibley County, MN",,Exurbs,n,city,
+173,Woodville,16000US5589025,"Woodville, WI",Woodville,Woodville,St. Croix,WI,06000US5510989025,"Woodville village, St. Croix County, WI",,Exurbs,n,city,
+174,Wilson,16000US5587475,"Wilson, WI",Wilson,Wilson,St. Croix,WI,06000US5510987475,"Wilson village, St. Croix County, WI",,Exurbs,n,city,
+175,Star Prairie,16000US5576825,"Star Prairie, WI",Star Prairie,,St. Croix,WI,06000US5510976825,"Star Prairie village, St. Croix County, WI",,Exurbs,n,city,
+176,Somerset,16000US5574675,"Somerset, WI",Somerset,Somerset,St. Croix,WI,06000US5510974675,"Somerset village, St. Croix County, WI",,Exurbs,y,city,
+177,Roberts,16000US5568475,"Roberts, WI",Roberts,Roberts,St. Croix,WI,06000US5510968475,"Roberts village, St. Croix County, WI",,Exurbs,n,city,
+178,North Hudson,16000US5558050,"North Hudson, WI",North Hudson,,St. Croix,WI,06000US5510958050,"North Hudson village, St. Croix County, WI",,Exurbs,n,city,
+179,New Richmond,16000US5557100,"New Richmond, WI",New Richmond,New Richmond,St. Croix,WI,06000US5510957100,"New Richmond city, St. Croix County, WI",,Exurbs,y,city,
+180,Hudson,16000US5536250,"Hudson, WI",Hudson,Hudson,St. Croix,WI,06000US5510936250,"Hudson city, St. Croix County, WI",,Exurbs,y,city,
+181,Houlton,16000US5535900,"Houlton, WI",,,St. Croix,WI,,Houlton CDP,,Exurbs,n,city,
+182,Hammond,16000US5532325,"Hammond, WI",Hammond,Hammond,St. Croix,WI,06000US5510932325,"Hammond village, St. Croix County, WI",,Exurbs,y,city,
+183,Glenwood City,16000US5529625,"Glenwood City, WI",Glenwood City,Glenwood City,St. Croix,WI,06000US5510929625,"Glenwood City city, St. Croix County, WI",,Exurbs,n,city,
+184,Emerald,16000US5523900,"Emerald, WI",Emerald,,St. Croix,WI,06000US5510923925,"Emerald town, St. Croix County, WI",,Exurbs,n,city,
+185,Deer Park,16000US5519325,"Deer Park, WI",Deer Park,Deer Park,St. Croix,WI,06000US5510919325,"Deer Park village, St. Croix County, WI",,Exurbs,n,city,
+186,Baldwin,16000US5504400,"Baldwin, WI",Baldwin,Baldwin,"St. Croix, Pierce",WI,06000US5510904400,"Baldwin village, St. Croix County, WI",2,Exurbs,n,city,
+187,Woodbury,16000US2771428,"Woodbury, MN",Woodbury,Woodbury,Washington,MN,06000US2716371428,"Woodbury city, Washington County, MN",,inner suburbs,y,city,
+188,Willernie,16000US2770366,"Willernie, MN",Willernie,Willernie,Washington,MN,06000US2716370366,"Willernie city, Washington County, MN",,inner suburbs,y,city,
+189,Stillwater,16000US2762824,"Stillwater, MN",Stillwater,Stillwater,Washington,MN,06000US2716362824,"Stillwater city, Washington County, MN",,outer suburbs,y,city,
+190,Saint Paul Park,16000US2758018,"St. Paul Park, MN",St. Paul Park,Saint Paul Park,Washington,MN,06000US2716358018,"St. Paul Park city, Washington County, MN",,inner suburbs,y,city,
+191,Saint Mary's Point,16000US2757292,"St. Marys Point, MN",St. Marys Point,,Washington,MN,06000US2716357292,"St. Marys Point city, Washington County, MN",,outer suburbs,y,city,
+192,Pine Springs,16000US2751316,"Pine Springs, MN",Pine Springs,,Washington,MN,06000US2716351316,"Pine Springs city, Washington County, MN",,inner suburbs,y,city,
+193,Oak Park Heights,16000US2747914,"Oak Park Heights, MN",Oak Park Heights,,Washington,MN,06000US2716347914,"Oak Park Heights city, Washington County, MN",,outer suburbs,y,city,
+194,Oakdale,16000US2747680,"Oakdale, MN",Oakdale,Oakdale,Washington,MN,06000US2716347680,"Oakdale city, Washington County, MN",,inner suburbs,y,city,
+195,Newport,16000US2745790,"Newport, MN",Newport,Newport,Washington,MN,06000US2716345790,"Newport city, Washington County, MN",,inner suburbs,y,city,
+196,Marine on Saint Croix,16000US2740562,"Marine on St. Croix, MN",Marine on St. Croix,Marine on Saint Croix,Washington,MN,06000US2716340562,"Marine on St. Croix city, Washington County, MN",,outer suburbs,y,city,
+197,Mahtomedi,16000US2739428,"Mahtomedi, MN",Mahtomedi,Mahtomedi,Washington,MN,06000US2716339428,"Mahtomedi city, Washington County, MN",,inner suburbs,y,city,
+198,Lake Saint Croix Beach,16000US2734865,"Lake St. Croix Beach, MN",Lake St. Croix Beach,,Washington,MN,06000US2716334865,"Lake St. Croix Beach city, Washington County, MN",,outer suburbs,y,city,
+199,Lakeland Shores,16000US2734658,"Lakeland Shores, MN",Lakeland Shores,,Washington,MN,06000US2716334658,"Lakeland Shores city, Washington County, MN",,outer suburbs,y,city,
+200,Lakeland,16000US2734622,"Lakeland, MN",Lakeland,Lakeland,Washington,MN,06000US2716334622,"Lakeland city, Washington County, MN",,outer suburbs,y,city,
+201,Lake Elmo,16000US2734244,"Lake Elmo, MN",Lake Elmo,Lake Elmo,Washington,MN,06000US2716334244,"Lake Elmo city, Washington County, MN",,outer suburbs,y,city,
+202,Hugo,16000US2730392,"Hugo, MN",Hugo,Hugo,Washington,MN,06000US2716330392,"Hugo city, Washington County, MN",,outer suburbs,y,city,
+203,Grant,16000US2725334,"Grant, MN",Grant,,Washington,MN,06000US2716325334,"Grant city, Washington County, MN",,outer suburbs,y,city,
+204,Cottage Grove,16000US2713456,"Cottage Grove, MN",Cottage Grove,Cottage Grove,Washington,MN,06000US2716313456,"Cottage Grove city, Washington County, MN",,outer suburbs,y,city,
+205,Birchwood Village,16000US2706058,"Birchwood Village, MN",Birchwood Village,,Washington,MN,06000US2716306058,"Birchwood Village city, Washington County, MN",,outer suburbs,y,city,
+206,Bayport,16000US2704114,"Bayport, MN",Bayport,Bayport,Washington,MN,06000US2716304114,"Bayport city, Washington County, MN",,outer suburbs,y,city,
+207,Afton,16000US2700316,"Afton, MN",Afton,Afton,Washington,MN,06000US2716300316,"Afton city, Washington County, MN",,outer suburbs,y,city,
+208,Waverly,16000US2768764,"Waverly, MN",Waverly,,Wright,MN,06000US2717168764,"Waverly city, Wright County, MN",,Exurbs,n,city,
+209,South Haven,16000US2761402,"South Haven, MN",South Haven,,Wright,MN,06000US2717161402,"South Haven city, Wright County, MN",,Exurbs,y,city,
+210,Saint Michael,16000US2757346,"St. Michael, MN",St. Michael,,Wright,MN,06000US2717157346,"St. Michael city, Wright County, MN",,Exurbs,y,city,
+211,Montrose,16000US2743810,"Montrose, MN",Montrose,,Wright,MN,06000US2717143810,"Montrose city, Wright County, MN",,Exurbs,y,city,
+212,Monticello,16000US2743774,"Monticello, MN",Monticello,,Wright,MN,06000US2717143774,"Monticello city, Wright County, MN",,Exurbs,y,city,
+213,Maple Lake,16000US2740220,"Maple Lake, MN",Maple Lake,,Wright,MN,06000US2717140220,"Maple Lake city, Wright County, MN",,Exurbs,y,city,
+214,Howard Lake,16000US2730284,"Howard Lake, MN",Howard Lake,,Wright,MN,06000US2717130284,"Howard Lake city, Wright County, MN",,Exurbs,n,city,
+215,Cokato,16000US2712430,"Cokato, MN",Cokato,,Wright,MN,06000US2717112430,"Cokato city, Wright County, MN",,Exurbs,y,city,
+216,Clearwater,16000US2711800,"Clearwater, MN",Clearwater,,Wright,MN,06000US2717111800,"Clearwater city, Wright County, MN",2,Exurbs,y,city,
+217,Buffalo,16000US2708452,"Buffalo, MN",Buffalo,,Wright,MN,06000US2717108452,"Buffalo city, Wright County, MN",,Exurbs,y,city,
+218,Annandale,16000US2701684,"Annandale, MN",Annandale,,Wright,MN,06000US2717101684,"Annandale city, Wright County, MN",,Exurbs,y,city,
+219,Albertville,16000US2700730,"Albertville, MN",Albertville,,Wright,MN,06000US2717100730,"Albertville city, Wright County, MN",,Exurbs,y,city,
+220,Minneapolis-St. Paul Metro Area,16000US2733460,Minneapolis-St. Paul Metro Area,,,,,,,,Metro,y,city,
+221,Armatage,,Armatage (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Armatage
+222,Audubon Park,,Audubon Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Audubon Park
+223,Bancroft,,Bancroft (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Bancroft
+224,Beltrami,,Beltrami (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Beltrami
+225,Bottineau,,Bottineau (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Bottineau
+226,Bryant,,Bryant (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Bryant
+227,Bryn Mawr,,Bryn Mawr (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Bryn Mawr
+228,Calhoun (CARAG),,Calhoun (CARAG) (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Calhoun (CARAG)
+229,Cedar - Isles - Dean,,Cedar - Isles - Dean (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Cedar - Isles - Dean
+230,Cedar-Riverside,,Cedar Riverside (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Cedar Riverside
+231,Central,,Central (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Central
+232,Cleveland,,Cleveland (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Cleveland
+233,Columbia Park,,Columbia Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Columbia Park
+234,Southeast Como,,Como (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Como
+235,Como Park,,Como (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Como
+236,Cooper,,Cooper (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Cooper
+237,Corcoran Neighborhood,,Corcoran (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Corcoran
+238,Dayton's Bluff,,Dayton's Bluff (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Dayton's Bluff
+239,Diamond Lake,,Diamond Lake (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Diamond Lake
+240,Downtown,,Downtown (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Downtown
+241,Downtown East,,Downtown East (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Downtown East
+242,Downtown West,,Downtown West (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Downtown West
+243,East Calhoun (ECCO),,East Calhoun (ECCO) (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,East Calhoun (ECCO)
+244,East Harriet,,East Harriet (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,East Harriet
+245,East Isles,,East Isles (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,East Isles
+246,East Phillips,,East Phillips (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,East Phillips
+247,Elliot Park,,Elliot Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Elliot Park
+248,Ericsson,,Ericsson (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Ericsson
+249,Field,,Field (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Field
+250,Folwell,,Folwell (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Folwell
+251,Fulton,,Fulton (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Fulton
+252,Greater East Side,,Greater East Side (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Greater East Side
+253,Hale,,Hale (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Hale
+254,Hamline-Midway,,Hamline-Midway (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Hamline-Midway
+255,Harrison,,Harrison (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Harrison
+256,Hawthorne,,Hawthorne (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Hawthorne
+257,Hiawatha,,Hiawatha (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Hiawatha
+258,Highland Park,,Highland Park (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Highland Park
+259,Holland,,Holland (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Holland
+260,Howe,,Howe (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Howe
+261,Jordan Neighborhood,,Jordan (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Jordan
+262,Keewaydin,,Keewaydin (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Keewaydin
+263,Kenny,,Kenny (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Kenny
+264,Kenwood,,Kenwood (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Kenwood
+265,King Field,,King Field (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,King Field
+266,Lind-Bohanon,,Lind-Bohanon (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Lind-Bohanon
+267,Linden Hills,,Linden Hills (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Linden Hills
+268,Logan Park,,Logan Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Logan Park
+269,Longfellow,,Longfellow (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Longfellow
+270,Loring Park,,Loring Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Loring Park
+271,Lowry Hill,,Lowry Hill (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Lowry Hill
+272,Lowry Hill East,,Lowry Hill East (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Lowry Hill East
+273,Lyndale,,Lyndale (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Lyndale
+274,Lynnhurst,,Lynnhurst (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Lynnhurst
+275,Macalester-Groveland,,Macalester-Groveland (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Macalester-Groveland
+276,Marcy Holmes,,Marcy Holmes (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Marcy Holmes
+277,Marshall Terrace,,Marshall Terrace (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Marshall Terrace
+278,McKinley,,McKinley (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,McKinley
+279,Mid - City Industrial,,Mid - City Industrial (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Mid - City Industrial
+280,Midtown Phillips,,Midtown Phillips (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Midtown Phillips
+281,Minnehaha,,Minnehaha (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Minnehaha
+282,Morris Park,,Morris Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Morris Park
+283,Near North,,Near North (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Near North
+284,Nicollet Island - East Bank,,Nicollet Island - East Bank (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Nicollet Island - East Bank
+285,North End,,North End (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,North End
+286,North Loop,,North Loop (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,North Loop
+287,Northeast Park,,Northeast Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Northeast Park
+288,Northrop,,Northrop (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Northrop
+289,Page,,Page (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Page
+290,Payne-Phalen,,Payne-Phalen (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Payne-Phalen
+291,Phillips West,,Phillips West (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Phillips West
+292,Powderhorn Park,,Powderhorn Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Powderhorn Park
+293,Prospect Park - E River Rd,,Prospect Park - East River Road (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Prospect Park - East River Road
+294,Regina,,Regina (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Regina
+295,Seward,,Seward (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Seward
+296,Sheridan,,Sheridan (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Sheridan
+297,Shingle Creek,,Shingle Creek (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Shingle Creek
+298,St. Anthony East,,St. Anthony East (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,St. Anthony East
+299,St. Anthony Park,,St. Anthony Park (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,St. Anthony Park
+300,St. Anthony West,,St. Anthony West (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,St. Anthony West
+301,Standish,,Standish (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Standish
+302,Stevens Square - Loring Heights,,Stevens Square - Loring Heights (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Stevens Square - Loring Heights
+303,Summit Hill,,Summit Hill (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Summit Hill
+304,Summit-University,,Summit-University (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Summit-University
+305,Sumner-Glenwood,,Sumner-Glenwood (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Sumner-Glenwood
+306,Battle Creek - Highwood,,Sunray-Battlecreek-Highwood (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Sunray-Battlecreek-Highwood
+307,Tangletown,,Tangletown (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Tangletown
+308,Thomas-Dale (Frogtown),,Thomas Dale (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Thomas Dale
+309,Merriam Park / Lexington-Hamline,,Union Park (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,Union Park
+310,Ventura Village,,Ventura Village (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Ventura Village
+311,Victory,,Victory (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Victory
+312,Waite Park,,Waite Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Waite Park
+313,Webber-Camden,,Webber-Camden (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Webber-Camden
+314,Wenonah,,Wenonah (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Wenonah
+315,West Calhoun,,West Calhoun (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,West Calhoun
+316,West Seventh,,West Seventh (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,West Seventh
+317,West Side,,West Side (St. Paul),St. Paul,,Ramsey,MN,,,,neighborhood,x,neighborhood,West Side
+318,Whittier,,Whittier (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Whittier
+319,Willard-Hay,,Willard-Hay (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Willard-Hay
+320,Windom,,Windom (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Windom
+321,Windom Park,,Windom Park (Minneapolis),Minneapolis,,Hennepin,MN,,,,neighborhood,x,neighborhood,Windom Park

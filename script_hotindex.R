@@ -1,4 +1,5 @@
 
+
 #install.packages("jsonlite")
 
 # load required packages
@@ -47,47 +48,79 @@ fouryearsago <- '2014'
 
 #Make sure the PPSF file has at least 5 years of data in it
 #The first column in each file should be "Place" capitalized
+#dom and ppsf files need to have a metro-level record in them
+
+# LOAD DATA ---------------------------------------------------------------
 
 
-#LOAD DATA
+
 #load the city croswalk file
-cities <- read_csv("city_crosswalk.csv")  %>% filter(County13=='y')
-
+#filter to exclude records for cities that are outside the 13-county metro
+#note: this also includes neighborhood names
 #Create a new field that only grabs the state code and county subidivision code
 #this is needed for joining to census data later
-cities <- cities %>% mutate(geoid2=substr(GEOID,8,14))
+cities <- read_csv("city_crosswalk.csv")  %>% filter(County13!='n')%>% mutate(geoid2=substr(GEOID,8,14))
+
+
 
 #load this year's data files and melt them (normalize)
-
 #closed sales data for all years by community
-closed <- melt(read_csv("closedsales.csv"), id.vars="Place") 
-dom <- melt(read_csv("dom.csv"), id.vars="Place")  #days on market data for all years by community
-polp <- melt(read_csv("polp.csv"), id.vars="Place")  #pct of original list price data for all years by community
-ppsf <- melt(read_csv("ppsf.csv"), id.vars = "Place")  #price per sq foot data for all years by community 
-inventory <- melt(read_csv("inventory.csv"), id.vars="Place")  #INVENTORY ; this is not used for the index
-
-
-#generate timeseries table to export for interactive (exported as JSON at bottom of script)
-timeseries <- inner_join(closed, cities %>%
-                           select(NameInRealtorsData, geoid2, FullName), by=c("Place"="NameInRealtorsData"))%>% 
-  rename(closed="value")
-
-timeseries <- inner_join(timeseries, dom, by=c("Place"="Place", "variable"="variable")) %>% 
-  rename(dom="value")
-
-timeseries <- inner_join(timeseries, ppsf, by=c("Place"="Place", "variable"="variable")) %>% 
-  rename(ppsf="value")
-
-timeseries <- inner_join(timeseries, inventory, by=c("Place"="Place", "variable"="variable")) %>% 
-  rename(inventory="value")
-
+closed <- melt(read_csv("closedsales.csv"), id.vars="Place")  %>% mutate(type='city') 
+dom <- melt(read_csv("dom.csv"), id.vars="Place")  %>% mutate(type='city')  #days on market data for all years by community
+polp <- melt(read_csv("polp.csv"), id.vars="Place")  %>% mutate(type='city')  #pct of original list price data for all years by community
+ppsf <- melt(read_csv("ppsf.csv"), id.vars = "Place")  %>% mutate(type='city')  #price per sq foot data for all years by community 
+inventory <- melt(read_csv("inventory.csv"), id.vars="Place")  %>% mutate(type='city')  #INVENTORY ; this is not used for the index
 
 #load other data files that don't need to be melted
 #UPDATE THIS!!!!
-other <- read_csv("othermetrics2018.csv")  
-other2017 <- read_csv("othermetrics2017.csv")  #other metrics for 2017 (pct new construction, pct townhouse, pct distressed) 
-other2016 <- read_csv("othermetrics2016.csv")  #other metrics for 2016
-lastindex <- read_csv("hotindex2017_revised.csv", col_types=cols(GEOID=col_character(), index_rank=col_double()))  #final index scores for last index we ran 
+other <- read_csv("othermetrics2018.csv")  %>% mutate(type='city') 
+other2017 <- read_csv("othermetrics2017.csv") %>% mutate(type='city') #other metrics for 2017 (pct new construction, pct townhouse, pct distressed) 
+other2016 <- read_csv("othermetrics2016.csv")   %>% mutate(type='city') #other metrics for 2016
+lastindex <- read_csv("hotindex2017_revised.csv", col_types=cols(GEOID=col_character(), index_rank=col_double())) %>% mutate(type='city')  #final index scores for last index we ran 
+
+
+#Load neighborhood data and melt
+closed_neighborhood <- melt(read_csv("closedsales_neighborhoods.csv"), id.vars="Place") %>% mutate(type='neighborhood') 
+dom_neighborhood <- melt(read_csv("dom_neighborhoods.csv"), id.vars="Place")  %>% mutate(type='neighborhood')   #days on market data for all years by neighborhood
+ppsf_neighborhood <- melt(read_csv("ppsf_neighborhood.csv"), id.vars = "Place") %>% mutate(type='neighborhood')   #price per sq foot data for all years by neighborhood 
+inventory_neighborhood <- melt(read_csv("inventory_neighborhoods.csv"), id.vars="Place") %>% mutate(type='neighborhood')   #inventory by neighborhood
+
+#append neighborhood data to city data for time series table
+closed2 <-  rbind(closed, closed_neighborhood)
+dom2 <- rbind(dom, dom_neighborhood)
+ppsf2 <-  rbind(ppsf, ppsf_neighborhood)
+inventory2 <-  rbind(inventory, inventory_neighborhood)
+
+
+
+
+# TIME SERIES -------------------------------------------------------------
+
+
+#generate timeseries table to export for interactive (exported as JSON at bottom of script)
+#the dom file needs to go first to ensure the metro area records gets included
+timeseries <- inner_join(dom2, cities %>%
+                           select(stribID, NameInRealtorsData, geoid2, FullName, location, type, neighborhoodname), 
+                         by=c("Place"="NameInRealtorsData", "type"="type"))%>% 
+  rename(dom="value")
+
+
+
+
+
+#the remainder of these are set up as a left join to ensure the timeseries table has all the places it started with
+#there is no record for metro area in the closed and inventory tables
+timeseries <- left_join(timeseries, ppsf2, by=c("Place"="Place", "variable"="variable", "type"="type")) %>% 
+  rename(ppsf="value")
+
+timeseries <- left_join(timeseries, closed2, by=c("Place"="Place", "variable"="variable", "type"="type")) %>% 
+  rename(closed="value")
+
+
+
+timeseries <- left_join(timeseries, inventory2, by=c("Place"="Place", "variable"="variable", "type"="type")) %>% 
+  rename(inventory="value")
+
 
 
 #data cleanup
@@ -100,19 +133,21 @@ other$place[other$place =="Minneapolis - (Citywide)"] <- "Minneapolis"
 
 #BUILD INDEX
 
+#this goes back and uses the original city-level data (without neighborhoods)
+
 #CLOSED SALES -- need most recent two years
-closednew <- closed%>%filter(variable ==currentyear | variable==lastyear)
+closednew <- closed2%>%filter(variable ==currentyear | variable==lastyear)
 
 #the variable in dcast refers to the field in closednew; syntax is dataframe, what to make rows ~ what to make columns
-closednew <- dcast(closednew, Place ~ variable)
+#cast by multiple variables -- so each row is a place/type combination, with years ("variable") as the columns
+closednew <- dcast(closednew, Place + type ~ variable, value.var="value")
 
-index_table <- inner_join(cities %>%
-                            select(NameInRealtorsData, FullName, geoid2, location, COUNTY, STATE), closednew,
-                          by=c("NameInRealtorsData"="Place"))
-
-
-
-index_table <- index_table%>%select(Place=NameInRealtorsData, geoid2, FullName, location, COUNTY, STATE, cs_prev=lastyear, cs_curr=currentyear)
+#join to the cities table, but make sure to only include the cities in 13-county metro that we are using
+index_table <- inner_join(cities %>% 
+                            filter(County13!='n') %>% 
+                            select(stribID, NameInRealtorsData, FullName, CityName, geoid2, location, COUNTY, STATE, type), closednew,
+                          by=c("NameInRealtorsData"="Place", "type"="type"))%>%
+  select(Place=NameInRealtorsData, stribID, geoid2, FullName, CityName,location, COUNTY, STATE, cs_prev=lastyear, cs_curr=currentyear, type)
 
 
 
@@ -121,35 +156,35 @@ index_table <- index_table%>%select(Place=NameInRealtorsData, geoid2, FullName, 
 #repeat that for other data tables
 
 #DAYS ON MARKET -- need most recent two years
-domnew <- dom%>%filter(variable ==lastyear | variable==currentyear)
-domnew <- dcast(domnew, Place ~variable)
-domnew <- domnew%>%select(Place, dom_prev=lastyear, dom_curr=currentyear)
+domnew <- dom2%>%filter(variable ==lastyear | variable==currentyear)
+domnew <- dcast(domnew, Place + type ~variable)
+domnew <- domnew%>%select(Place, type, dom_prev=lastyear, dom_curr=currentyear)
 
 #PCT ORIG LIST PRICE -- need most recent year only
-polpnew <- polp%>%filter(variable==currentyear)%>%select(Place, pctorigprice=value)
+polpnew <- polp%>%filter(variable==currentyear)%>%select(Place, type, pctorigprice=value)
 
 
 #Price per square foot (PPSF) -- at least last 5 years
 
-ppsfnew <- dcast(ppsf, Place ~ variable)
-ppsfnew <- ppsfnew%>%select(Place, ppsf_yr1=fouryearsago, ppsf_yr2=threeyearsago, ppsf_yr3=twoyearsago,
+ppsfnew <- dcast(ppsf2, Place + type ~ variable)
+ppsfnew <- ppsfnew%>%select(Place, type, ppsf_yr1=fouryearsago, ppsf_yr2=threeyearsago, ppsf_yr3=twoyearsago,
                             ppsf_y4=lastyear, ppsf_yr5=currentyear)
 
 
 
 #distressed, new construction, townhousecondo -- most recent year --from othermetrics
 #make sure the fields are decimals (without percent signs)
-distress <- other%>%select(place) %>%
+distress <- other%>%select(place, type) %>%
   mutate(NewConstruct=round(other$NewConstruction,3), 
          TownCondo=round(other$TownhouseCondo,3), 
          PctDistressed=round(other$Distressed,3))
 
 
 #join the index_table with other metrics
-index_table <- left_join(index_table, ppsfnew, by=c("Place"="Place"))
-index_table <- left_join(index_table, domnew, by=c("Place"="Place"))
-index_table <- left_join(index_table, polpnew, by=c("Place"="Place"))
-index_table <- left_join(index_table, distress, by=c("Place"="place"))
+index_table <- left_join(index_table, ppsfnew, by=c("Place"="Place", "type"="type"))
+index_table <- left_join(index_table, domnew, by=c("Place"="Place", "type"="type"))
+index_table <- left_join(index_table, polpnew, by=c("Place"="Place", "type"="type"))
+index_table <- left_join(index_table, distress, by=c("Place"="place", "type"="type"))
 
 #some of the key fields in index_table are not populated for all the cities
 
@@ -159,11 +194,11 @@ index_table <- left_join(index_table, distress, by=c("Place"="place"))
 #ADD VARIABLES:
 #pct change in closed sales
 #diff in days on market
-#average PPSF for previous four years (columns 9 through 12 in the table, yrs1-4)
+#average PPSF for previous four years (columns 12 through 15 in the table, yrs1-4)
 index_table <- index_table%>%
   mutate(cs_pctchange= (cs_curr-cs_prev)/cs_prev, 
   dom_diff=dom_curr-dom_prev,
-  avgPPSF= rowMeans(index_table[,9:12]))
+  avgPPSF= rowMeans(index_table[,12:15]))
 
 #ADD VARIABLE:
 #Pct change between PPSF for most recent year and prior 4-yr average
@@ -181,7 +216,7 @@ index_table <- index_table%>%
 
 #This winnows it down to only cities that are eligible for rankings (75 sales or more)
 index_table_rankings <- index_table%>%
-  filter(cs_curr>=75) %>% 
+  filter(cs_curr>=75, type=='city') %>% 
   mutate(dom_rank=rank(-dom_curr),
          polp_rank=rank(pctorigprice),
          ppsf_rank=rank(ppsf_pctchange),
@@ -200,13 +235,13 @@ index_table_rankings <- index_table_rankings%>%mutate(index_rank = rank(-index_s
 
 #add last year's index position info
 #and add back to all the cities
-lastindex_results <- lastindex%>%select(Place, geoid2, index_rank) %>% rename(LastRank=index_rank)
+lastindex_results <- lastindex%>%select(Place, type, geoid2, index_rank) %>% rename(LastRank=index_rank)
 
 final_table <-  left_join(index_table, index_table_rankings %>% select(geoid2, dom_rank, polp_rank, ppsf_rank, 
                                                                        distress_rank, index_score, index_rank),
                           by=c("geoid2"="geoid2"))
 
-final_table <- left_join(final_table, lastindex_results, by=c("Place"="Place"))
+final_table <- left_join(final_table, lastindex_results, by=c("Place"="Place", "type"="type"))
 
 
 
@@ -243,22 +278,26 @@ final_table <- left_join(final_table, census_income %>%
 final_table <-  left_join(final_table, census_value %>% 
                             select(geoid, MedianValue), by=c("geoid2.x"="geoid"))
 
+
+
+
+
 final_table_export <-  final_table %>%
-  select(Place, geoid2.x, FullName, location,
+  select(Place, geoid2.x, FullName, CityName,location,
                                             COUNTY, STATE, cs_curr, ppsf_pctchange, dom_diff,pctorigprice,
                                             PctDistressed,NewConstruct, index_score, index_rank, LastRank,
-                                            PctOwner, PctCostBurdenedOwners, MedianHHIncome, MedianValue) %>% 
+                                            PctOwner, PctCostBurdenedOwners, MedianHHIncome, MedianValue, stribID, type) %>% 
   rename(geoid2=geoid2.x)
 
 
 
+#add neighborhood records with select columns
+
+
+
+
+
 #write.csv(final_table_export, "hotindex2018_testing.csv", row.names=FALSE)
-
-#export as JSON
-
-
-
-
 
 
 
@@ -271,8 +310,6 @@ write(hot_housing_index_json, "hot_housing_index.json")
 
 timeseries_json <-  toJSON(timeseries, pretty=TRUE)
 write(timeseries_json, "timeseries.json")
-
-
 
 
 
