@@ -20,23 +20,6 @@ library(rmarkdown)
 library(DT) #needed for making  searchable sortable data tble
 library(jsonlite)
 
-#UPDATE THIS  -- to reflect the years you want to use
-yr1='2003'
-yr2='2004'
-yr3='2005'
-yr4='2006'
-yr5='2007'
-yr6='2008'
-yr7='2009'
-yr8='2010'
-yr9='2011'
-yr10='2012'
-yr11='2013'
-yr12='2014'
-yr13='2015'
-yr14='2016'
-yr15='2017'
-yr16='2018'
 
 
 currentyear='2018'
@@ -59,31 +42,66 @@ fouryearsago <- '2014'
 #note: this also includes neighborhood names
 #Create a new field that only grabs the state code and county subidivision code
 #this is needed for joining to census data later
-cities <- read_csv("city_crosswalk.csv")  %>% filter(County13!='n')%>% mutate(geoid2=substr(GEOID,8,14))
+cities <- read_csv("./data/city_crosswalk.csv")  %>% filter(County13!='n')%>% mutate(geoid2=substr(GEOID,8,14))
 
 
 
 #load this year's data files and melt them (normalize)
 #closed sales data for all years by community
-closed <- melt(read_csv("closedsales.csv"), id.vars="Place")  %>% mutate(type='city') 
-dom <- melt(read_csv("dom.csv"), id.vars="Place")  %>% mutate(type='city')  #days on market data for all years by community
-polp <- melt(read_csv("polp.csv"), id.vars="Place")  %>% mutate(type='city')  #pct of original list price data for all years by community
-ppsf <- melt(read_csv("ppsf.csv"), id.vars = "Place")  %>% mutate(type='city')  #price per sq foot data for all years by community 
-inventory <- melt(read_csv("inventory.csv"), id.vars="Place")  %>% mutate(type='city')  #INVENTORY ; this is not used for the index
+closed <- melt(read_csv("./data/closedsales.csv"), id.vars="Place")  %>% mutate(type='city') 
+dom <- melt(read_csv("./data/dom.csv"), id.vars="Place")  %>% mutate(type='city')  #days on market data for all years by community
+polp <- melt(read_csv("./data/polp.csv"), id.vars="Place")  %>% mutate(type='city')  #pct of original list price data for all years by community
+ppsf <- melt(read_csv("./data/ppsf.csv"), id.vars = "Place")  %>% mutate(type='city')  #price per sq foot data for all years by community 
+inventory <- melt(read_csv("./data/inventory.csv"), id.vars="Place")  %>% mutate(type='city')  #INVENTORY ; this is not used for the index
 
 #load other data files that don't need to be melted
 #UPDATE THIS!!!!
-other <- read_csv("othermetrics2018.csv")  %>% mutate(type='city') 
-other2017 <- read_csv("othermetrics2017.csv") %>% mutate(type='city') #other metrics for 2017 (pct new construction, pct townhouse, pct distressed) 
-other2016 <- read_csv("othermetrics2016.csv")   %>% mutate(type='city') #other metrics for 2016
-lastindex <- read_csv("hotindex2017_revised.csv", col_types=cols(GEOID=col_character(), index_rank=col_double())) %>% mutate(type='city')  #final index scores for last index we ran 
+other <- read_csv("./data/othermetrics2018.csv")  %>% mutate(type='city') 
+other2017 <- read_csv("./data/othermetrics2017.csv") %>% mutate(type='city') #other metrics for 2017 (pct new construction, pct townhouse, pct distressed) 
+other2016 <- read_csv("./data/othermetrics2016.csv")   %>% mutate(type='city') #other metrics for 2016
+lastindex <- read_csv("./data/hotindex2017_revised.csv", col_types=cols(geoid2=col_character(), index_rank=col_double())) %>% mutate(type='city')  #final index scores for last index we ran 
+
+
+#fix city name for Minneapolis in the other metrics file
+other$place[other$place =="Minneapolis - (Citywide)"] <- "Minneapolis"
 
 
 #Load neighborhood data and melt
-closed_neighborhood <- melt(read_csv("closedsales_neighborhoods.csv"), id.vars="Place") %>% mutate(type='neighborhood') 
-dom_neighborhood <- melt(read_csv("dom_neighborhoods.csv"), id.vars="Place")  %>% mutate(type='neighborhood')   #days on market data for all years by neighborhood
-ppsf_neighborhood <- melt(read_csv("ppsf_neighborhood.csv"), id.vars = "Place") %>% mutate(type='neighborhood')   #price per sq foot data for all years by neighborhood 
-inventory_neighborhood <- melt(read_csv("inventory_neighborhoods.csv"), id.vars="Place") %>% mutate(type='neighborhood')   #inventory by neighborhood
+closed_neighborhood <- melt(read_csv("./data/closedsales_neighborhoods.csv"), id.vars="Place") %>% mutate(type='neighborhood') 
+dom_neighborhood <- melt(read_csv("./data/dom_neighborhoods.csv"), id.vars="Place")  %>% mutate(type='neighborhood')   #days on market data for all years by neighborhood
+ppsf_neighborhood <- melt(read_csv("./data/ppsf_neighborhood.csv"), id.vars = "Place") %>% mutate(type='neighborhood')   #price per sq foot data for all years by neighborhood 
+inventory_neighborhood <- melt(read_csv("./data/inventory_neighborhoods.csv"), id.vars="Place") %>% mutate(type='neighborhood')   #inventory by neighborhood
+
+
+
+#import census data on tenure and housing costs - #b25106
+
+census_tenure <-  read_csv("./data/census_tenure_costs.csv", 
+                           col_types=cols(geoid=col_character(),Geography=col_character(),
+                                          TotalHousingUnits=col_integer(),
+                                          PctOwner=col_double(), OwnerCostBurdened=col_integer(),
+                                          PctCostBurdenedOwners=col_double(),
+                                          OwnerOccupiedUnits=col_integer()))
+
+#import census data on median household income - B19013
+census_income <-  read_csv("./data/ACS_17_5YR_B19013.csv", col_types=cols(geoid=col_character(),
+                                                                          HD01_VD01=col_integer())) %>% rename(MedianHHIncome=HD01_VD01)
+
+
+#Import census data on median value of owner-occupied homes - B25077
+census_value <-  read_csv("./data/ACS_17_5YR_B25077.csv", col_types=cols(geoid=col_character(),
+                                                                         HD01_VD01=col_integer())) %>%
+  rename(MedianValue=HD01_VD01)
+
+
+
+
+
+
+
+
+
+# TIME SERIES -------------------------------------------------------------
 
 #append neighborhood data to city data for time series table
 closed2 <-  rbind(closed, closed_neighborhood)
@@ -93,18 +111,12 @@ inventory2 <-  rbind(inventory, inventory_neighborhood)
 
 
 
-
-# TIME SERIES -------------------------------------------------------------
-
-
 #generate timeseries table to export for interactive (exported as JSON at bottom of script)
 #the dom file needs to go first to ensure the metro area records gets included
 timeseries <- inner_join(dom2, cities %>%
                            select(stribID, NameInRealtorsData, geoid2, FullName, location, type, neighborhoodname), 
                          by=c("Place"="NameInRealtorsData", "type"="type"))%>% 
   rename(dom="value")
-
-
 
 
 
@@ -123,15 +135,14 @@ timeseries <- left_join(timeseries, inventory2, by=c("Place"="Place", "variable"
 
 
 
-#data cleanup
-#fix city name for Minneapolis in the other metrics file
-other$place[other$place =="Minneapolis - (Citywide)"] <- "Minneapolis"
 
 
 
 
 
-#BUILD INDEX
+# BUILD INDEX -------------------------------------------------------------
+
+
 
 #this goes back and uses the original city-level data (without neighborhoods)
 
@@ -229,7 +240,9 @@ index_table_rankings <- index_table_rankings%>%
 
 #rank the index score (1=highest)
 #notice the minus sign in front of index_score so that the highest score gets the rank of #1
-index_table_rankings <- index_table_rankings%>%mutate(index_rank = rank(-index_score))
+#the ties.method=c("max") ensures that you don't have decimal points in the rank number
+index_table_rankings <- index_table_rankings%>%
+  mutate(index_rank = rank(-index_score, ties.method = c("max")))
 
 
 
@@ -247,26 +260,8 @@ final_table <- left_join(final_table, lastindex_results, by=c("Place"="Place", "
 
 
 
+# ADD CENSUS DATA ---------------------------------------------------------
 
-
-#import census data on tenure and housing costs - #b25106
-
-census_tenure <-  read_csv("census_tenure_costs.csv", 
-                           col_types=cols(geoid=col_character(),Geography=col_character(),
-                                          TotalHousingUnits=col_integer(),
-                                          PctOwner=col_double(), OwnerCostBurdened=col_integer(),
-                                          PctCostBurdenedOwners=col_double(),
-                                          OwnerOccupiedUnits=col_integer()))
-
-#import census data on median household income - B19013
-census_income <-  read_csv("ACS_17_5YR_B19013.csv", col_types=cols(geoid=col_character(),
-                                          HD01_VD01=col_integer())) %>% rename(MedianHHIncome=HD01_VD01)
-
-
-#Import census data on median value of owner-occupied homes - B25077
-census_value <-  read_csv("ACS_17_5YR_B25077.csv", col_types=cols(geoid=col_character(),
-                                                                   HD01_VD01=col_integer())) %>%
-  rename(MedianValue=HD01_VD01)
 
 #Join Census metrics to the final_table
 final_table <- left_join(final_table, census_tenure %>%
@@ -281,6 +276,9 @@ final_table <-  left_join(final_table, census_value %>%
 
 
 
+# CREATE FINAL HOT HOUSING TABLE ------------------------------------------
+
+
 
 final_table_export <-  final_table %>%
   select(Place, geoid2.x, FullName, CityName,location,
@@ -291,17 +289,17 @@ final_table_export <-  final_table %>%
 
 
 
-#add neighborhood records with select columns
+
+
+
+write.csv(final_table_export, "hotindex2018_testing.csv", row.names=FALSE)
 
 
 
 
-
-#write.csv(final_table_export, "hotindex2018_testing.csv", row.names=FALSE)
-
+# EXPORT JSON -------------------------------------------------------------
 
 
-#Generate and export JSON files
 
 hot_housing_index_json <-  toJSON(final_table_export, pretty=TRUE)
 write(hot_housing_index_json, "hot_housing_index.json")
