@@ -48,28 +48,25 @@ fouryearsago <- '2013'
 
 #LOAD DATA
 #load the city croswalk file
-cities <- read_csv("city_crosswalk.csv") %>% filter(County13=='y')
+cities <- read_csv("./data/city_crosswalk.csv")  %>% filter(County13=='y')%>% mutate(geoid2=substr(GEOID,8,14))
+
 
 #load this year's data files and melt them (normalize)
-closed <- melt(read_csv("closedsales.csv"), id.vars="Place")  #closed sales data for all years by community
-dom <- melt(read_csv("dom.csv"), id.vars="Place")  #days on market data for all years by community
-polp <- melt(read_csv("polp.csv"), id.vars="Place")  #pct of original list price data for all years by community
-ppsf <- melt(read_csv("ppsf.csv"), id.vars = "Place")  #price per sq foot data for all years by community 
+closed <- melt(read_csv("./data_lastyear/closedsales.csv"), id.vars="Place")  #closed sales data for all years by community
+dom <- melt(read_csv("./data_lastyear/dom.csv"), id.vars="Place")  #days on market data for all years by community
+polp <- melt(read_csv("./data_lastyear/polp.csv"), id.vars="Place")  #pct of original list price data for all years by community
+ppsf <- melt(read_csv("./data_lastyear/ppsf.csv"), id.vars = "Place")  #price per sq foot data for all years by community 
 
 #load other data files that don't need to be melted
 #UPDATE THIS!!!!
 #other <- read_csv("othermetrics2018.csv")  
-other <- read_csv("othermetrics2017.csv")  #other metrics for 2017 (pct new construction, pct townhouse, pct distressed) 
+other <- read_csv("./data/othermetrics2017.csv")  #other metrics for 2017 (pct new construction, pct townhouse, pct distressed) 
 #other <- read_csv("othermetrics2016.csv")  #other metrics for 2016
 
 
 
 
 #data cleanup
-
-#Create a new field that only grabs the state code and county subidivision code
-#this is needed for joining to census data later
-cities <- cities %>% mutate(geoid2=substr(GEOID,8,14))
 
 
 #fix city name for Minneapolis in the other metrics file
@@ -174,7 +171,10 @@ index_table_rankings <- index_table_rankings%>%
 
 #rank the index score (1=highest)
 #notice the minus sign in front of index_score so that the highest score gets the rank of #1
-index_table_rankings <- index_table_rankings%>%mutate(index_rank = rank(-index_score))
+index_table_rankings <- index_table_rankings%>%
+  mutate(index_rank = rank(-index_score, ties.method = c("max")))
+  
+
 
 
 
@@ -186,7 +186,7 @@ final_table <-  left_join(index_table, index_table_rankings %>% select(geoid2, d
 
 
 
-write.csv(final_table, "hotindex2017_revised.csv", row.names=FALSE)
+write.csv(final_table, "./data/hotindex2017_revised.csv", row.names=FALSE)
 
 
 

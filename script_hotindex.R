@@ -49,7 +49,10 @@ cities <- read_csv("./data/city_crosswalk.csv")  %>% filter(County13!='n')%>% mu
 #load this year's data files and melt them (normalize)
 #closed sales data for all years by community
 closed <- melt(read_csv("./data/closedsales.csv"), id.vars="Place")  %>% mutate(type='city') 
+
+#dom data is only reliable starting in 2007
 dom <- melt(read_csv("./data/dom.csv"), id.vars="Place")  %>% mutate(type='city')  #days on market data for all years by community
+
 polp <- melt(read_csv("./data/polp.csv"), id.vars="Place")  %>% mutate(type='city')  #pct of original list price data for all years by community
 ppsf <- melt(read_csv("./data/ppsf.csv"), id.vars = "Place")  %>% mutate(type='city')  #price per sq foot data for all years by community 
 inventory <- melt(read_csv("./data/inventory.csv"), id.vars="Place")  %>% mutate(type='city')  #INVENTORY ; this is not used for the index
