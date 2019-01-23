@@ -314,3 +314,4 @@ write(timeseries_json, "timeseries.json")
 
 
 
+#write.csv(index_table_rankings, 'index_table_rankings.csv', row.names=FALSE)
