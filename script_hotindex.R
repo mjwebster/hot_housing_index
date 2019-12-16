@@ -1,5 +1,6 @@
 
 
+
 #install.packages("jsonlite")
 
 # load required packages
@@ -277,7 +278,11 @@ final_table <-  left_join(final_table, census_value %>%
                             select(geoid, MedianValue), by=c("geoid2.x"="geoid"))
 
 
+#names(final_table)
 
+#export for restrictive zoning index project
+#export <- final_table %>% select(Place, geoid2.x, CityName, location, ppsf_yr5, PctOwner, PctCostBurdenedOwners, MedianValue)
+#write.csv(export, 'zoning_project_data.csv', row.names=FALSE)
 
 # CREATE FINAL HOT HOUSING TABLE ------------------------------------------
 
