@@ -1,41 +1,31 @@
 # hot_housing_index
-This contains the R scripts and Markdown page for the annual "hot housing index" that we run each January. 
+This contains the R scripts and Markdown page for the annual "hot housing index" that we run each January or early February. 
 
-Data comes from David Arbit at the Minneapolis Area Association of Realtors. He sends an end-of-year file - in Excel - that has several sheets worth of data on various metrics for communities in the metro area. It's important to ask David if he can provide all this data at least several days in advance of the press conference that they hold when releasing this data to the public. In fact, put in this request with David in December, if possible, before he gets busy in the weeks leading up to the press conference.
+The primary data we use for the index comes from David Arbit at the Minneapolis Area Association of Realtors. He sends an end-of-year file - in Excel - that has several sheets worth of data on various metrics for home sales in communities in the metro area. It's important to ask David if he can provide all this data at least several days in advance of the press conference that they hold when releasing this data to the public. In fact, put in this request with David in December, if possible, before he gets busy in the weeks leading up to the press conference.
 
 We decided to only include incorporated cities (no townships) from the 13-county metro area. There is a file called "city_crosswalk" that has the names of all the cities in the Realtors data and matches it to the Census fips codes for places. There is also a field called "County13" where I have manually said "y" or "n" to include in the analysis. This also includes the neighborhoods of St. Paul and Minneapolis because we included them in the interactive (but not the index).
 
-When the data arrives, you have to export the data out of the Excel file into csv files. I thought about writing R code that would pull it from Excel, but the file never seems to come in the same format every year and I just don't think I can trust that. 
+Starting with the 2019 data, we asked David to provide us three batches of data (and they come all in one file) -- one if all the metrics for all sales of existing homes in the metro area (excludes sales of new construction); one is for existing home sales where price was below $300,000 (the starter homes); and one for the "moveup" homes priced between $300,000 and 750,000. 
 
-So you need to make these .csv files, which should include multiple years of data (back to 2003, hopefully):
-1) dom.csv -- days on market for cities (data prior to 2007 is unreliable)
-2) ppsf.csv -- price per square foot for cities
-3) inventory.csv - inventory of homes for cities
-4) closedsales.csv -- number of closed sales for cities
-5) polp.csv -- percent of original list price for cities
-6) dom_neighborhood.csv -- days on market for neighborhoods
-7) ppsf_neighborhood.csv -- price per square foot for neighborhoods
-8) inventory_neighborhood.csv -- inventory for neighborhoods
-9) closedsales_neighborhood.csv -- closed sales for neighborhoods
+Because we were changing the index anyway, we also eliminated one metric (the percent of distressed sales) and added a new one (percent change in closed sales) to account for the changing market. When we first started this, there were still a lot of pockets with high shares of foreclosures (that has gone away) and now the market is cooling and places with increases in closed sales or a slower decline rate are buoyed in the index by including this metric. 
 
-You will also need in a separate file from David Arbit, the market share ("other metrics") for each city, which includes the percentage of sales that were new construction and percentage that were distressed sales.
+The data that Arbit provides goes back 5 years. Due to the change in the underlying data (no new construction) we can't compare these most recent years with our older data. 
 
-And you will need the following Census (ACS-5 year) tables for all places in MN and WI:  
-1) B19013 - median household income
-2) B25106 - tenure by housing costs as a percentage of household income (this one I scaled down considerably in Excel and made a separate csv file with only the fields I wanted)
+Other data:
+The R script pulls in Census (ACS 5-year) data for the metro as a whole and all places in the metro (including the Wisconsin counties) for median household income (B19013), pct of homeowners who are cost-burdened, paying 30% or more of income on housing costs (B25106), median home values (B25077) and homeownership rates (B25003). This data is used in charts for each city (plotting the city against the rest of the metro). 
 
-In the future, it would be possible to pull this data directly via the census API. I just didn't have time to learn that this year. 
+We also need to get from Arbit the latest metro-wide "days on market" year-end metric and the median price per square foot metric. This is for the 16-county metro. These are used in 2 charts -- the display ones at the top of the page and as contextual lines in the city-specific charts. Numbers for prior years are stored in an Excel file, so you just need to add the current year to the file. 
 
-It's important to maintain data files from older years in case you have to change the index in the future. 
+Also need median sale price, and end of year inventory to use in charts on the web page.
 
-In December 2018, I created a separate script to re-run older years of data. 
+Output needed for the web page:
+1) hot_housing_index_json -- This file contains all of the cities that were included in the overall hot housing index (only cities with 70 or more sales last year), which typically comes out to about 100 cities. It includes the key metrics from the index, as well as values that are auto-filled into a block of text the is displayed when you select a city. This includes the county(s) where the city is located, the index ranking, the percent change in price per square foot, the difference (in days) in the days on market compared to the previous years, the average percentage of original list price received by sellers. It also includes the census metrics needed for the charts at the bottom of the page (median home values, median household income, percent home ownership, percent cost-burdened owners). 
 
-The main script -- "script_hotindex.R" -- pulls in all the data files, generates the index for the current year, marries the data with census data and also pulls in the index ranking for each community from the previous year, then spits out JSON files for the online interactive.  Before running this script there are a lot of things that might need to updated. I tried to keep them at the top of the script and minimize the changes needed. The main thing is making sure all the right data is queued up in the "data" directory. 
+2) timeseries_json -- this file contains the historical metrics for each city that is needed for the "historical real estate trends..." charts. The first two charts -- median days on market and median sale price per square foot -- display both the selected city and the metro as a whole. The data for the metro as a whole comes from a separate source, but the R script merges it together with the city data before spitting out the JSON file.  The other two charts - annual closed sales and homes for sale (inventory) -- can only display the selected city because these are raw numbers and the scale would be wildly off (i.e. 25 sales in the city compared to 10s of thousands in the metro as a whole). 
 
-Note on the 2018 index (published in January 2019):
-We got the updated 2018 data from Arbit ahead of publication date, but he wasn't able to give us revisions to 2003 to 2015 data. We went ahead and published our index and data using the 2003 to 2015 data from last year, plus the 2016 to 2018 data we got just prior to publication.  
 
-He sent the revised older data right after we published. I tried putting it in and running the script. It changed the results of our index. The only data from those older years that the index relies on is the price per square foot. It pulls the four prior years. So in this case, any changes to the 2014 and 2015 prices would have the ability to skew our index results slightly. 
+3) We need to get separate data from Arbit for the 4 metro-wide charts, showing historical trends, that are at the top of the web page. These show median days on market, percent of newly built homes sold through the MLS (we may need to ditch this one), median sale price and end of year inventory. 
 
-So I saved a ppsf file named 'ppsf_usedforindex_Jan2019.csv' that has the ppsf data that we actually used for the index results that were published in January. All the other files in the data directory are currently updated to reflect the revisions from all years. 
+
+
 

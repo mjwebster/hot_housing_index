@@ -35,87 +35,116 @@ library(aws.s3) #needed for uploading to amazon S3 server
 library(rmarkdown)
 library(DT) #needed for making  searchable sortable data tble
 library(jsonlite)
+library(formattable)
 ```
 
 
 
  
 
-```{r, code=readLines("script_hotindex.R"), echo=FALSE, warning=FALSE, message=FALSE}
+```{r, code=readLines("script_hotindex_v2020.R"), echo=FALSE, warning=FALSE, message=FALSE}
 
 ```
 
 
 
 
-#Top 20 cities
 
-```{r top10, echo=FALSE}
-kable(final_table %>% filter(index_rank<=20) %>% select(FullName, location, index_rank, LastRank) %>% arrange(index_rank))
-
-
-```
-
-
-
-#Hot housing Index
+# Hot housing Index-- full market
 Index_rank=This year's ranking on the index<br>
-LastRank=Last year's ranking<br>
-pct_op= Average percent of seller's original price<br>
-PctDistressed = Pct of sales that were foreclosures/short sales<br>
-ppsf_pctchange= Pct change in price per square foot median<br>
-dom_curr= Average days on market this year<br>
+polp= Average percent of seller's original price<br>
+ppsf_chg= Pct change in price per square foot median<br>
+closed_chg= Pct change in number of closed sales<br>
 dom_diff = Change in average days on market compared to year before<br>
+starter_pct = Percent of closed sales that were starter homes
 
 ```{r}
-
-#make a searchable, sortable data table of key metrics
-
-top100table <- final_table  %>% select(FullName,index_rank, LastRank, cs_curr, pctorigprice, ppsf_pctchange, dom_curr, dom_diff) %>%
-  mutate(pct_op=round(pctorigprice,2)) %>%
-  select(FullName, index_rank, LastRank, cs_curr, pct_op, ppsf_pctchange, dom_curr, dom_diff) %>% 
-  arrange(index_rank)
-
-#this uses the DT package
-#find out more about styling the table here: https://blog.rstudio.com/2015/06/24/dt-an-r-interface-to-the-datatables-library/
-datatable(top100table)
-```
+index_all <-  left_join(index_all, pctstarter, by=c("place"="place"))
 
 
-#Biggest movers up the index<br>
-Only includes cities that moved at least 15 spots up<br>
-Move=number of places moved between last year and this year<br>
-index_rank= current ranking<br>
-LastRank=Last year's ranking<br>
+index_all_formatted <-  index_all %>% mutate(starter_pct = percent(pctstarter, digits=0), polp_pct = percent(polp, digits=1), ppsf_pctchange_pct = percent(ppsf_pctchange, digits=1), closed_pctchange_pct = percent(closed_pctchange, digits=1), ppsfavg_c = currency(ppsfavg, digits=0), ppsf_c = currency(ppsf, digits=0))
 
-```{r bigmovers, echo=FALSE}
-kable(final_table %>% select(FullName,location, index_rank, LastRank) %>% mutate(move=LastRank-index_rank) %>% filter(move>15) %>% arrange(desc(move)))
+
+format_table(index_all_formatted  %>% select(place,index_rank,  closed=closed_sales, polp=polp_pct, ppsf_chg=ppsf_pctchange_pct, closed_chg=closed_pctchange_pct, dom_diff, starter_pct) %>%
+  arrange(index_rank))
+
+
 ```
 
 
 
 
 
-#Look at price per square foot
+
+
+
+# Price per square foot change
+ppsfavg = Average ppsf four years prior<br>
+ppsf = Most recent year median price per square foot<br>
 ```{r}
-price_table <- final_table  %>% filter(index_rank!="NA") %>% select(FullName,index_rank, LastRank, ppsf_yr3, ppsf_y4, ppsf_yr5, ppsf_pctchange) %>%
-  mutate(ppsf_2yrsago= round(ppsf_yr3,2),
-         ppsf_lstyr = round(ppsf_y4, 2),
-         ppsf_thisyr = round(ppsf_yr5,2)) %>% 
- select(FullName, index_rank, ppsf_2yrsago, ppsf_lstyr, ppsf_thisyr, ppsf_pctchange) %>% 
-  arrange(desc(ppsf_pctchange))
+format_table(index_all_formatted  %>% filter(index_rank!="NA") %>% select(place,index_rank, ppsfavg_c ,ppsf_c, ppsf_pctchange_pct) %>%
+  arrange(desc(ppsf_pctchange_pct)))
 
-#this uses the DT package
-#find out more about styling the table here: https://blog.rstudio.com/2015/06/24/dt-an-r-interface-to-the-datatables-library/
-datatable(price_table)
+
+```
+
+# Change in closed sales
+closedavg = average number of closed sales over prevous four years<br>
+closed_sales = number of closed sales in most recent year
+```{r}
+format_table(index_all_formatted  %>% filter(index_rank!="NA") %>% select(place,index_rank, closedavg, closed_sales, closed_chg= closed_pctchange_pct) %>%
+  arrange(desc(closed_chg)))
+
+
+```
+
+# Change in days on market
+dom_lastyr = days on market in previous year<br>
+dom = days on market in most recent year<br>
+dom_diff = difference (in days) between the two years
+```{r}
+datatable(index_all_formatted  %>% filter(index_rank!="NA") %>% select(place,index_rank, closed_sales, dom_lastyr, dom, dom_diff) %>%
+  arrange((dom_diff)))
 ```
 
 
 
+# Starter home market index
+This analysis only represents homes less than $300,000
+```{r}
+
+
+index_starter_formatted <-  index_starter %>% mutate(polp_pct = percent(polp, digits=1), ppsf_pctchange_pct = percent(ppsf_pctchange, digits=1), closed_pctchange_pct = percent(closed_pctchange, digits=1), ppsfavg_c = currency(ppsfavg, digits=0), ppsf_c = currency(ppsf, digits=0))
+
+format_table(index_starter_formatted  %>% select(place,index_score,  closed_sales, polp_pct, ppsf_pctchange_pct, closed_pctchange_pct, dom, dom_diff) %>%
+  arrange(desc(index_score)))
+
+```
+
+# Move up market index
+This analysis represents homes 300k to 500k (hoping to change it to 800k)
+```{r}
+
+
+index_moveup_formatted <-  index_moveup %>% mutate(polp_pct = percent(polp, digits=1), ppsf_pctchange_pct = percent(ppsf_pctchange, digits=1), closed_pctchange_pct = percent(closed_pctchange, digits=1), ppsfavg_c = currency(ppsfavg, digits=0), ppsf_c = currency(ppsf, digits=0))
+
+format_table(index_moveup_formatted  %>% select(place,index_score,  closed_sales, polp_pct, ppsf_pctchange_pct, closed_pctchange_pct, dom, dom_diff) %>%
+  arrange(desc(index_score)))
+
+
+```
+
+
+# Overall inventory- biggest declines
+```{r}
+inventory_formatted <-  inventory %>% mutate(inv_chg = percent(pctchange, digits=1))
+
+format_table(inventory_formatted %>%  select(place=name_in_realtors_data, location, x2017, x2018, x2019, inv_chg) %>% arrange((inv_chg)))
+```
 
 
 
-```{r loadtoaws, echo=FALSE, eval=FALSE, results="hide"}
+```{r loadtoaws, echo=FALSE, eval=FALSE, results="hide", message=FALSE, warning=FALSE}
 
 #Load to this URL: http://strib-data-internal.s3-us-west-1.amazonaws.com/projects/HotHousingIndex/HotIndex.html
 #this section will not run automatically when you run the whole page
