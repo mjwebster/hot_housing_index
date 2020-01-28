@@ -49,14 +49,14 @@ datafile <-  './data/Hot Housing Index Annual Data 2019 (Values, 2020-01-14).xls
 #this is needed for joining to census data later
 cities <- read_csv("./data/city_crosswalk.csv")  %>%
   clean_names()%>% 
-  filter(county13=='y')%>%
+  filter(county13!='n')%>%
   mutate(geoid2=substr(geoid,8,14)) 
 
-neighborhoods <-  read_csv("./data/city_crosswalk.csv") %>% clean_names() %>% filter(type=='neighborhood')
+neighborhoods <- cities %>%  filter(type=='neighborhood')
 
 
 
-#closed sales data for 3 price ranges
+#closed sales data for 3 price ranges + neighborhoods
 #import and then pivot longer and add labels
 closed_all <- read_xlsx(datafile, sheet='CS-C', range='B14:G5894') %>% clean_names() %>% 
   rename(place=x1) %>%
@@ -73,8 +73,15 @@ closed_moveup <-  read_xlsx(datafile, sheet='CS-C', range='R14:W5894') %>% clean
   pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
   mutate(price_range='moveup')
 
+
+closed_hoods <- read_xlsx(datafile, sheet='CS-N', range='B14:G119') %>% clean_names() %>% 
+  rename(place=x1) %>%
+  pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
+  mutate(price_range='neighborhood')
+
+
 #append them all together
-closed <-  bind_rows(closed_all, closed_starter, closed_moveup)
+closed <-  bind_rows(closed_all, closed_starter, closed_moveup, closed_hoods)
 
 #join with cities data
 closed  <- inner_join(closed, cities %>% select(name_in_realtors_data, geoid2), by=c("place"="name_in_realtors_data"))
@@ -82,8 +89,6 @@ closed  <- inner_join(closed, cities %>% select(name_in_realtors_data, geoid2), 
 #populate closed sales where it's NULL
 closed$closed_sales[is.na(closed$closed_sales)] <-  0
 
-#check to make sure we have 170 rows
-#closed %>% group_by(place) %>% summarise(count=n())
 
 #Days on market
 dom_all <- read_xlsx(datafile, sheet='CDOM-C', range='B14:G5894') %>% clean_names() %>% 
@@ -101,16 +106,24 @@ dom_moveup <-  read_xlsx(datafile, sheet='CDOM-C', range='R14:W5894') %>% clean_
   pivot_longer(-place, names_to="year", values_to = "dom") %>% 
   mutate(price_range='moveup')
 
+dom_hoods <- read_xlsx(datafile, sheet='CDOM-N', range='B14:G119') %>% clean_names() %>% 
+  rename(place=x1) %>%
+  pivot_longer(-place, names_to="year", values_to = "dom") %>% 
+  mutate(price_range='neighborhood')
+
 #append files together
-dom <-  bind_rows(dom_all, dom_starter, dom_moveup)
+dom <-  bind_rows(dom_all, dom_starter, dom_moveup, dom_hoods)
 
 #join with cities data
 dom  <- inner_join(dom, cities%>% select(name_in_realtors_data, geoid2), by=c("place"="name_in_realtors_data"))
 
-#check to make sure we have 170 rows
-#dom %>% group_by(place) %>% summarise(count=n())
+
+
+
 
 #Pct of original list price
+#this one isn't needed for neighborhoods
+
 polp_all <- read_xlsx(datafile, sheet='POLP-C', range='B14:G5894') %>% clean_names() %>% 
   rename(place=x1) %>%
   pivot_longer(-place, names_to="year", values_to = "polp") %>% 
@@ -129,11 +142,13 @@ polp_moveup <-  read_xlsx(datafile, sheet='POLP-C', range='R14:W5894') %>% clean
 #append files together
 polp  <- bind_rows(polp_all, polp_starter, polp_moveup)
 
+rm(polp_all, polp_starter, polp_moveup)
+
 #join with city data
 polp  <- inner_join(polp, cities%>% select(name_in_realtors_data, geoid2), by=c("place"="name_in_realtors_data"))
 
-#check to make sure we have 170 rows
-#polp %>% group_by(place) %>% summarise(count=n())
+
+
 
 #Price per square foot
 ppsf_all <- read_xlsx(datafile, sheet='PPSF-C', range='B14:G5894') %>% clean_names() %>% 
@@ -151,14 +166,18 @@ ppsf_moveup <-  read_xlsx(datafile, sheet='PPSF-C', range='R14:W5894') %>% clean
   pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
   mutate(price_range='moveup')
 
+ppsf_hoods <- read_xlsx(datafile, sheet='PPSF-N', range='B14:G119') %>% clean_names() %>% 
+  rename(place=x1) %>%
+  pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
+  mutate(price_range='neighborhood')
+
 #append files together
-ppsf  <-  bind_rows(ppsf_all, ppsf_starter, ppsf_moveup)
+ppsf  <-  bind_rows(ppsf_all, ppsf_starter, ppsf_moveup, ppsf_hoods)
 
 #join with cities data
 ppsf  <- inner_join(ppsf, cities%>% select(name_in_realtors_data, geoid2), by=c("place"="name_in_realtors_data"))
 
-#check to make sure we have 170 rows
-#ppsf %>% group_by(place) %>% summarise(count=n())
+
 
 #Inventory
 inv_all <- read_xlsx(datafile, sheet='INV-C', range='B14:G5894') %>% clean_names() %>% 
@@ -176,14 +195,18 @@ inv_moveup <-  read_xlsx(datafile, sheet='INV-C', range='R14:W5894') %>% clean_n
   pivot_longer(-place, names_to="year", values_to = "inv") %>% 
   mutate(price_range='moveup')
 
+inv_hoods <- read_xlsx(datafile, sheet='INV-N', range='B14:G119') %>% clean_names() %>% 
+  rename(place=x1) %>%
+  pivot_longer(-place, names_to="year", values_to = "inv") %>% 
+  mutate(price_range='neighborhood')
+
 #append files together
-inv <- bind_rows(inv_all, inv_starter, inv_moveup)
+inv <- bind_rows(inv_all, inv_starter, inv_moveup, inv_hoods)
 
 #join with cities data
 inv  <- inner_join(inv, cities%>% select(name_in_realtors_data, geoid2), by=c("place"="name_in_realtors_data"))
 
-#check to make sure we have 170 rows
-#inv %>% group_by(place) %>% summarise(count=n())
+
 
 
 #Join them all together into one file
@@ -191,6 +214,18 @@ alldata <- left_join(closed, dom %>% select(-place), by=c("geoid2"="geoid2", "ye
 alldata <- left_join(alldata, polp %>% select(-place), by=c("geoid2"="geoid2", "year"="year", "price_range"="price_range"))
 alldata <- left_join(alldata, ppsf %>% select(-place), by=c("geoid2"="geoid2", "year"="year", "price_range"="price_range"))
 alldata <- left_join(alldata, inv %>% select(-place), by=c("geoid2"="geoid2", "year"="year", "price_range"="price_range"))
+
+
+
+
+
+
+
+
+
+
+# CREATE INDEX ------------------------------------------------------------
+
 
 
 #Create index data -- only need the most current year
@@ -231,6 +266,10 @@ index <-  left_join(index, dom_lastyear, by=c("geoid2"="geoid2", "price_range"="
 
 # ALL MARKET INDEX --------------------------------------------------------
 
+#this grabs the cities that won't be in the index but will be in the online lookup
+index_missing <- index %>% filter(price_range=='all', closed_sales<70)
+
+
 
 #index -- all sales; markets with 70 or more sales
 index_all <-  index %>% 
@@ -247,9 +286,17 @@ index_all <-  index %>%
 #  select(place, closed_sales, ppsf_pctchange, closed_pctchange, dom_diff, index_score)
 
 
+#NEED TO PUT NEIGHBORHOODS BACK INTO THIS INDEX_ALL FILE
+
+index_neighborhoods <-  index %>% 
+  filter(price_range=='neighborhood')
+
+index_all <-  bind_rows(index_all, index_neighborhoods, index_missing)
+
 
 # STARTER HOME MARKET INDEX -----------------------------------------------
-
+#starter home = under $300k sale price
+#only includes cities with 40 or more sales in this price range
 index_starter <-  index %>% 
   filter(price_range=='starter', closed_sales>=40) %>% 
   mutate(dom_rank=rank(-dom),
@@ -265,6 +312,8 @@ index_starter <-  index %>%
 
 # MOVE UP MARKET INDEX ----------------------------------------------------
 
+#move up market = $300k to $750k sale price
+#only includes cities with 40 or more sales in this price range
 index_moveup <-  index %>% 
   filter(price_range=='moveup', closed_sales>=40) %>% 
   mutate(dom_rank=rank(-dom),
@@ -469,9 +518,6 @@ index_for_web <-  index_for_web %>%
          pct_burden, hhincome, home_value, strib_id, type)
 
 
-#generate as a JSON file
-hot_housing_index_json <-  toJSON(index_for_web, pretty=TRUE)
-write(hot_housing_index_json, "./output/hot_housing_index.json")
 
 
 
@@ -487,6 +533,7 @@ write(hot_housing_index_json, "./output/hot_housing_index.json")
 #this first batch of code grabs data for the cities
 
 timeseries_cities <-  left_join(cities %>%
+                                  filter(type=='city') %>% 
                            select(strib_id, name_in_realtors_data, geoid2, full_name, location, type),
                          dom_all %>% select(place, year, dom),
                          by=c("name_in_realtors_data"="place"))
@@ -516,33 +563,12 @@ timeseries_metro <-  read_xlsx('./misc/metro16_dom_ppsf_historical.xlsx') %>%
 
 
 
-#this grabs MLS data for the neighborhoods in Minneapolis and St. Paul
-#this data is not included in the index; this is the only place neighborhood-level data is used
 
-#days on market - last 5 years
-dom_hoods <- read_xlsx(datafile, sheet='CDOM-N', range='B14:G119') %>% clean_names() %>% 
-  rename(place=x1) %>%
-  pivot_longer(-place, names_to="year", values_to = "dom")
-
-#price per square foot - last 5 years
-ppsf_hoods <- read_xlsx(datafile, sheet='PPSF-N', range='B14:G119') %>% clean_names() %>% 
-  rename(place=x1) %>%
-  pivot_longer(-place, names_to="year", values_to = "ppsf")
-
-#closed sales - last 5 years
-closed_hoods <- read_xlsx(datafile, sheet='CS-N', range='B14:G119') %>% clean_names() %>% 
-  rename(place=x1) %>%
-  pivot_longer(-place, names_to="year", values_to = "closed_sales")
-
-#end of year inventory -- last 5 years
-inv_hoods <- read_xlsx(datafile, sheet='INV-N', range='B14:G119') %>% clean_names() %>% 
-  rename(place=x1) %>%
-  pivot_longer(-place, names_to="year", values_to = "inv")
 
 
 #merge it all together, including neighborhood label data
 timeseries_hoods <-  left_join(neighborhoods %>%
-                           select(strib_id, name_in_realtors_data, full_name, location, type, neighborhoodname),
+                           select(strib_id, geoid2, name_in_realtors_data, full_name, location, type, neighborhoodname),
                          dom_hoods %>% select(place, year, dom),
                          by=c("name_in_realtors_data"="place"))
 
@@ -569,12 +595,27 @@ timeseries <-  bind_rows(timeseries_cities, timeseries_metro, timeseries_hoods) 
          strib_id, geoid2, full_name, location, neighborhoodname,
          ppsf, closed=closed_sales, inventory=inv)
 
+
+
+
+
+
 #export to JSON
 timeseries_json <-  toJSON(timeseries, pretty=TRUE)
 write(timeseries_json, "./output/timeseries.json")
 
 
 
+
+
+
+#generate as a JSON file
+hot_housing_index_json <-  toJSON(index_for_web, pretty=TRUE)
+write(hot_housing_index_json, "./output/hot_housing_index.json")
+
+
+
+#other analysis
 
 pctstarter <-  pivot_wider(alldata %>% filter(year=='x2019') %>%
                              select(place, price_range, closed_sales), names_from=price_range, values_from = closed_sales) %>% 
@@ -594,3 +635,19 @@ inventory  <- pivot_wider(inv_all %>% filter(price_range=='all'), names_from=yea
   mutate(pctchange = (x2019-x2017)/x2017)
 
 inventory <-  left_join(cities %>% select(name_in_realtors_data, location), inventory, by=c("name_in_realtors_data"="place")) %>% filter(x2019!='NA' & x2019>=10)
+
+
+
+hoods <-  left_join(ppsf_hoods %>% select(-price_range), closed_hoods %>% select(place, year, closed_sales), by=c("place"="place", "year"="year")) 
+
+
+hoods_sales_2019 <-  closed_hoods %>% filter(year=='x2019', place!='Unknown', closed_sales>=25)
+
+hoods <- inner_join(hoods, hoods_sales_2019 %>% select(place), by=c("place"="place"))
+
+hoods_ppsf_wide <-  pivot_wider(hoods %>% select(-closed_sales), names_from=year, values_from=ppsf) 
+
+hoods_ppsf_wide <-  hoods_ppsf_wide %>% mutate(pctchange = (x2019-x2015)/x2015)
+hoods_ppsf_wide %>% arrange(desc(pctchange))
+
+write.csv(hoods_ppsf_wide, './output/hoods_ppsf_change.csv', row.names=FALSE)
