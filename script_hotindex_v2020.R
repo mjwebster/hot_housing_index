@@ -1,3 +1,4 @@
+
 #this is revised version for 2020 publication
 #runs analysis and generates JSON files needed for online: http://www.startribune.com/ranking-the-hottest-housing-markets-in-the-twin-cities/502089881/#place-25
 #generates data needed for "HotIndex.RMD" file to share with reporter Jim Buchta
@@ -281,6 +282,10 @@ index_all <-  index %>%
          dom_change_rank = rank(-dom_diff),
          index_score = dom_rank+polp_rank+ppsf_rank+closed_rank+dom_change_rank,
          index_rank =rank(-index_score, ties.method = c("max")))
+
+#this is what is needed for print graphic/map
+for_graphic <-  index_all %>% select(geoid2, place, closed_sales, closed_pctchange, dom_diff, ppsf_pctchange, polp, index_score, index_rank)
+write.csv(for_graphic, './output/hothousing_printmap.csv', row.names=FALSE)
 
 #index_all %>% arrange(desc(index_score)) %>%
 #  select(place, closed_sales, ppsf_pctchange, closed_pctchange, dom_diff, index_score)

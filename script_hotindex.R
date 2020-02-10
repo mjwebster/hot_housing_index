@@ -1,6 +1,12 @@
 
 
 
+#########################################################OLD VERSION##################################
+#THIS IS THE OLD VERSION OF THE INDEX, LAST USED FOR THE 2018 HOT INDEX (PUBLISHED IN JAN 2019)
+
+
+
+
 #install.packages("jsonlite")
 
 # load required packages
