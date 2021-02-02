@@ -24,13 +24,13 @@ library(readr) #importing csv files
 library(dplyr) #general analysis 
 library(ggplot2) #making charts
 library(lubridate) #date functions
-library(reshape2) #use this for melt function to create one record for each team
+
 library(tidyr)
 library(janitor) #use this for doing crosstabs
 
 library(scales) #needed for stacked bar chart axis labels
 library(knitr) #needed for making tables in markdown page
-library(car)
+#library(car)
 library(aws.s3) #needed for uploading to amazon S3 server
 library(rmarkdown)
 library(DT) #needed for making  searchable sortable data tble
@@ -41,12 +41,22 @@ library(formattable)
 
 
  
+```{r, warning=FALSE, message=FALSE}
+index_all <-  read_csv('./output/index_all_output.csv')
 
-```{r, code=readLines("script_hotindex_v2020.R"), echo=FALSE, warning=FALSE, message=FALSE}
+pctstarter <-  read_csv('./output/pctstarter_output.csv')
+
+index_moveup <-  read_csv('./output/index_moveup_output.csv')
+
+
+index_starter <-  read_csv('./output/index_starter_output.csv')
+
+
+inventory <-  read_csv('./output/inventory_output.csv')
+
+
 
 ```
-
-
 
 
 
@@ -141,6 +151,9 @@ inventory_formatted <-  inventory %>% mutate(inv_chg = percent(pctchange, digits
 
 format_table(inventory_formatted %>%  select(place=name_in_realtors_data, location, x2017, x2018, x2019, inv_chg) %>% arrange((inv_chg)))
 ```
+
+
+
 
 
 
