@@ -30,3 +30,5 @@ Output needed for the web page:
 
 3) The file called "metro_totals_for_charts.csv", located in the misc folder has the metrics needed for the charts. Need to ask Arbit for the latest numbers for metro-wide "days on market" year-end metric, median sale prices, total new listings, total closed sales, and median price per square foot metric. This is for the 16-county metro. These are used in 2 sets of charts -- the display ones at the top of the page and as contextual lines in the city-specific charts when you select a city. Numbers for prior years are stored in an Excel file, so you just need to add the current year to the file. That Excel file is in the misc folder.
 
+4) the file called "metro16_dom_ppsf_historical.xlsx" also needs to be updated. these provide metro context lines in the charts that are displayed for each city. 
+
