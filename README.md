@@ -11,15 +11,18 @@ The data that Arbit provided for the 2019 index (published in Feb. 2020) goes ba
 
 Because we were changing the index anyway, we also eliminated one metric from the index (the percent of distressed sales) and added a new one (percent change in closed sales) to account for the changing market. When we first started this, there were still a lot of pockets with high shares of foreclosures (that has gone away) and now the market is cooling and places with increases in closed sales or a slower decline rate are buoyed in the index by including this metric.
 
-The new index is in the script file "script_hotindex_v2020"
 
-The old index is preserved in the file "script_hotindex"
+For the 2021 data (which published in Jan 2022), we adjusted the index once again. The pandemic has really thrown the market into craziness. Arbit provided us a new metric-- Months Supply (MSI)-- which is an estimation of how long it would take to sell the existing inventory of for sale homes if the current pace of closed sales continued. In other words, this does a better job of getting at both the supply and demand sides. The new index looked at the percent change in MSI from current year compared to the previous five-year average. We kept the percent change in price per square foot compared to 5-year average. And also kept the percent change in closed sales compared to previous five year average. We weighted that closed sales further by looking at the percent change year over year. And we multiplied the ranking for the percent change in closed sales. 
+
+So there are separate script files for the 2020 data  (script_hotindex_v2020) and for the 2021 data (script_hotindex_v2022). In hindsight I realized I should have given that a 2021 name.  The older index is preserved in the file "script_hotindex"
+
+With the 2021 data, we also did a neighborhoods analysis for Minneapolis and St. Paul (neighborhood_analysis.Rmd) and compared Minneapolis real estate trends with crime data (mpls_hood_index_2021.rmd) and then also created a buyers index (included in the script_hotindex_v2022) for other stories.
 
 
 
 Other data:
 The R script pulls in Census (ACS 5-year) data for the metro as a whole and all places in the metro (including the Wisconsin counties) for median household income (B19013), pct of homeowners who are cost-burdened, paying 30% or more of income on housing costs (B25106), median home values (B25077) and homeownership rates (B25003). This data is used in charts for each city (plotting the city against the rest of the metro). 
-
+For the 2021 data, we had to stick with 2019 ACS because 2020 ACS wasn't released due to pandemic problems in collecting responses.
 
 
 
