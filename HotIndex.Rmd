@@ -42,17 +42,19 @@ library(formattable)
 
  
 ```{r, warning=FALSE, message=FALSE}
-index_all <-  read_csv('./output/index_all_output.csv')
+index_all <-  read_csv('./output/index_main_2021.csv')
 
-pctstarter <-  read_csv('./output/pctstarter_output.csv')
+#pctstarter <-  read_csv('./output/index_starter_2021.csv')
 
-index_moveup <-  read_csv('./output/index_moveup_output.csv')
-
-
-index_starter <-  read_csv('./output/index_starter_output.csv')
+index_moveup <-  read_csv('./output/index_moveup_2021.csv')
 
 
-inventory <-  read_csv('./output/inventory_output.csv')
+index_starter <-  read_csv('./output/index_starter_2021.csv')
+
+
+
+
+
 
 
 
