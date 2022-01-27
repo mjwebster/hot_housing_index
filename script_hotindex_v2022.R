@@ -389,16 +389,6 @@ write.csv(index_experiment, 'hot_housing_index.csv', row.names=FALSE)
 
 
 #BUYERS MARKET-------
- index_buyer <-index %>% 
-  filter(price_range=='all', closed_sales>=80, place!='Cokato') %>% 
-  mutate(dom_rank=rank(dom), #favor places with higher days on market
-         ppsf_rank=rank(-ppsf), #reverse; favor places with lower PPSF
-         ppsf_chg_rank=rank(-ppsf_pctchange), #reverse this; favor places with lower price increases
-          inv_rank=rank(inv), #favors places with higher inventory
-         index_score = dom_rank+ppsf_chg_rank+ppsf_rank*2+inv_rank, 
-         index_rank =rank(-index_score, ties.method = c("max"))
-  ) %>% 
-  arrange(index_rank)
 
 
 index_buyer_version2 <-index %>% 
