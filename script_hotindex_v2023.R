@@ -1,5 +1,5 @@
 
-#this is revised version for January 2022 publication
+#this is revised version for January 2023 publication
 #runs analysis and generates JSON files needed for online: http://www.startribune.com/ranking-the-hottest-housing-markets-in-the-twin-cities/502089881/#place-25
 #generates data needed for "HotIndex.RMD" file to share with reporter Jim Buchta
 
@@ -45,23 +45,23 @@ census_api_key(Sys.getenv("CENSUS_API_KEY"))
 
 #set year variables here so that code below doesn't need to refer to 
 #specific years
-currentyear='x2021'
-lastyear='x2020'
+currentyear='x2022'
+lastyear='x2021'
 timeseries_start = '2016'
-timeseries_end = '2021'
+timeseries_end = '2022'
 
 
 
 
 #What year to pull for census data - ACS 5-year
 #new data is released each December
-years <- lst(2019)
+years <- lst(2021)
 
 
 
 # LOAD DATA ---------------------------------------------------------------
 
-datafile <-  './data/2021 Metrowide Stats for Strib HHI (Vals).xlsx'
+datafile <-  './data/Hot Housing Index Annual Data 2022_fullyear.xlsx'
 
 
 #The data for the metro lines in the time series charts for DOM and PPSF 
@@ -94,23 +94,23 @@ neighborhoods <- cities %>%  filter(type=='neighborhood')
 
 #closed sales data for 3 price ranges + neighborhoods
 #import and then pivot longer and add labels
-closed_all <- read_xlsx(datafile, sheet='CS-C', range='B14:H6621') %>% clean_names() %>% 
+closed_all <- read_xlsx(datafile, sheet='CS-C', range='B14:I4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
   mutate(price_range='all')
 
-closed_starter <-  read_xlsx(datafile, sheet='CS-C', range='K14:Q6621') %>% clean_names() %>% 
+closed_starter <-  read_xlsx(datafile, sheet='CS-C', range='L14:S4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
   mutate(price_range='starter')
 
-closed_moveup <-  read_xlsx(datafile, sheet='CS-C', range='T14:Z6621') %>% clean_names() %>% 
+closed_moveup <-  read_xlsx(datafile, sheet='CS-C', range='V14:AC4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
   mutate(price_range='moveup')
 
 
-closed_hoods <- read_xlsx(datafile, sheet='CS-N', range='B14:H119') %>% clean_names() %>% 
+closed_hoods <- read_xlsx(datafile, sheet='CS-N', range='B14:I210') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
   mutate(price_range='neighborhood')
@@ -127,22 +127,22 @@ closed$closed_sales[is.na(closed$closed_sales)] <-  0
 
 
 #Days on market
-dom_all <- read_xlsx(datafile, sheet='CDOM-C', range='B14:H6621') %>% clean_names() %>% 
+dom_all <- read_xlsx(datafile, sheet='CDOM-C', range='B14:I4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "dom") %>% 
   mutate(price_range='all')
 
-dom_starter <-  read_xlsx(datafile, sheet='CDOM-C', range='K14:Q6621') %>% clean_names() %>% 
+dom_starter <-  read_xlsx(datafile, sheet='CDOM-C', range='L14:S4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "dom") %>% 
   mutate(price_range='starter')
 
-dom_moveup <-  read_xlsx(datafile, sheet='CDOM-C', range='T14:Z6621') %>% clean_names() %>% 
+dom_moveup <-  read_xlsx(datafile, sheet='CDOM-C', range='V14:AC4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "dom") %>% 
   mutate(price_range='moveup')
 
-dom_hoods <- read_xlsx(datafile, sheet='CDOM-N', range='B14:H119') %>% clean_names() %>% 
+dom_hoods <- read_xlsx(datafile, sheet='CDOM-N', range='B14:I210') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "dom") %>% 
   mutate(price_range='neighborhood')
@@ -160,17 +160,17 @@ dom$dom[is.na(dom$dom)] <-  0
 #Pct of original list price
 #this one isn't needed for neighborhoods
 
-polp_all <- read_xlsx(datafile, sheet='POLP-C', range='B14:H6621') %>% clean_names() %>% 
+polp_all <- read_xlsx(datafile, sheet='POLP-C', range='B14:I4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "polp") %>% 
   mutate(price_range='all')
 
-polp_starter <-  read_xlsx(datafile, sheet='POLP-C', range='K14:Q6621') %>% clean_names() %>% 
+polp_starter <-  read_xlsx(datafile, sheet='POLP-C', range='L14:S4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "polp") %>% 
   mutate(price_range='starter')
 
-polp_moveup <-  read_xlsx(datafile, sheet='POLP-C', range='T14:Z6621') %>% clean_names() %>% 
+polp_moveup <-  read_xlsx(datafile, sheet='POLP-C', range='V14:AC4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "polp") %>% 
   mutate(price_range='moveup')
@@ -187,24 +187,24 @@ polp$polp[is.na(polp$polp)] <-  0
 
 
 #Price per square foot
-ppsf_all <- read_xlsx(datafile, sheet='PPSF-C', range='B14:H6621') %>% clean_names() %>% 
+ppsf_all <- read_xlsx(datafile, sheet='PPSF-C', range='B14:I4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
   mutate(price_range='all')
 
 
 
-ppsf_starter <-  read_xlsx(datafile, sheet='PPSF-C', range='K14:Q6621') %>% clean_names() %>% 
+ppsf_starter <-  read_xlsx(datafile, sheet='PPSF-C', range='L14:S4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
   mutate(price_range='starter')
 
-ppsf_moveup <-  read_xlsx(datafile, sheet='PPSF-C', range='T14:Z6621') %>% clean_names() %>% 
+ppsf_moveup <-  read_xlsx(datafile, sheet='PPSF-C', range='V14:AC4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
   mutate(price_range='moveup')
 
-ppsf_hoods <- read_xlsx(datafile, sheet='PPSF-N', range='B14:H119') %>% clean_names() %>% 
+ppsf_hoods <- read_xlsx(datafile, sheet='PPSF-N', range='B14:I210') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
   mutate(price_range='neighborhood')
@@ -220,22 +220,22 @@ ppsf$ppsf[is.na(ppsf$ppsf)] <-  0
 
 
 #Inventory
-inv_all <- read_xlsx(datafile, sheet='INV-C', range='B14:H6621') %>% clean_names() %>% 
+inv_all <- read_xlsx(datafile, sheet='INV-C', range='B14:I4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "inv") %>% 
   mutate(price_range='all')
 
-inv_starter <-  read_xlsx(datafile, sheet='INV-C', range='K14:Q6621') %>% clean_names() %>% 
+inv_starter <-  read_xlsx(datafile, sheet='INV-C', range='L14:S4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "inv") %>% 
   mutate(price_range='starter')
 
-inv_moveup <-  read_xlsx(datafile, sheet='INV-C', range='T14:Z6621') %>% clean_names() %>% 
+inv_moveup <-  read_xlsx(datafile, sheet='INV-C', range='V14:AC4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "inv") %>% 
   mutate(price_range='moveup')
 
-inv_hoods <- read_xlsx(datafile, sheet='INV-N', range='B14:H119') %>% clean_names() %>% 
+inv_hoods <- read_xlsx(datafile, sheet='INV-N', range='B14:I210') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "inv") %>% 
   mutate(price_range='neighborhood')
@@ -251,23 +251,23 @@ inv$inv[is.na(inv$inv)] <-  0
 
 
 # Months Supply
-msi_all <- read_xlsx(datafile, sheet='MSI-C', range='B14:H6621') %>% clean_names() %>% 
+msi_all <- read_xlsx(datafile, sheet='MSI-C', range='B14:I4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "msi") %>% 
   mutate(price_range='all') 
 
 
-msi_starter <-  read_xlsx(datafile, sheet='MSI-C', range='K14:Q6621') %>% clean_names() %>% 
+msi_starter <-  read_xlsx(datafile, sheet='MSI-C', range='L14:S4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "msi") %>% 
   mutate(price_range='starter')
 
-msi_moveup <-  read_xlsx(datafile, sheet='MSI-C', range='T14:Z6621') %>% clean_names() %>% 
+msi_moveup <-  read_xlsx(datafile, sheet='MSI-C', range='V14:AC4529') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "msi") %>% 
   mutate(price_range='moveup')
 
-msi_hoods <- read_xlsx(datafile, sheet='MSI-N', range='B14:H119') %>% clean_names() %>% 
+msi_hoods <- read_xlsx(datafile, sheet='MSI-N', range='B14:I210') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "msi") %>% 
   mutate(price_range='neighborhood')
@@ -292,7 +292,7 @@ alldata <- left_join(alldata, msi %>% select(-place), by=c("geoid2"="geoid2", "y
 
 
 
-
+write.csv(alldata, './output/alldata.csv', row.names = FALSE)
 
 
 
@@ -385,11 +385,12 @@ index <-  left_join(index, closed_lastyr, by=c("geoid2"="geoid2", "price_range"=
 #this grabs the cities that won't be in the index but will be in the online lookup
 index_missing <- index %>% filter(price_range=='all', closed_sales<80)
 
+index_missing <-  left_join(index_missing, cities %>% select(name_in_realtors_data, full_name, city_name), by=c("place"="name_in_realtors_data"))
 
 
 
 index_experiment <-  index %>% 
-  filter(price_range=='all', closed_sales>=80, place!='Cokato') %>% 
+  filter(price_range=='all', closed_sales>=80) %>% 
   mutate(ppsf_rank=rank(ppsf_pctchange),
          closed_rank = rank(closed_pctchange),
         lastyr_closed_rank = rank(lastyr_closed_pct_change),
@@ -401,7 +402,10 @@ index_experiment <-  index %>%
   ) %>% 
   arrange(index_rank)
 
-write.csv(index_experiment, 'hot_housing_index.csv', row.names=FALSE)
+index_experiment <-  left_join(index_experiment, cities %>% select(name_in_realtors_data, full_name, city_name), by=c("place"="name_in_realtors_data"))
+
+
+write.csv(index_experiment, './output/hot_housing_index.csv', row.names=FALSE)
 
 
 #BUYERS MARKET-------
@@ -463,7 +467,6 @@ mpls_hood_index <-  index %>%
   arrange(index_rank)
 
 
-test <-  index %>% filter(price_range=='neighborhood', city_name=='Minneapolis')
 
 sp_hood_index <-  index %>% 
   filter(price_range=='neighborhood', city_name=='St. Paul') %>% 
@@ -481,38 +484,13 @@ sp_hood_index <-  index %>%
   arrange(index_rank)
 
 
-output <-  bind_rows(test, sp_hood_index)
+output <-  bind_rows(mpls_hood_index, sp_hood_index)
 write.csv(output, './output/neighborhoods_dw.csv', row.names=FALSE)
 
 #write.csv(mpls_hood_index, './output/mpls_hood_index_2021.csv', row.names = FALSE)
 
 #write.csv(sp_hood_index, './output/sp_hood_index_2021.csv', row.names = FALSE)
 
-
-
-#bring in shapefiles of the neighborhoods
-
-mpls_sf <-  st_read("./mapping/Minneapolis_Neighborhoods.shp")
-sp_sf <-  st_read("./mapping/sp_neighborhoods.shp")
-
-
-
-# join MSI and PPSF from the most current year
-#these will be used for graphics
-mpls_sf <-  left_join(mpls_sf, cities %>% select(name_in_realtors_data, neighborhoodname), by=c("BDNAME"="neighborhoodname"))
-mpls_sf <-  left_join(mpls_sf, msi_hoods %>% filter(year=='x2021') %>% select(-year, -price_range), by=c("name_in_realtors_data"="place"))
-mpls_sf <-  left_join(mpls_sf, ppsf_hoods %>% filter(year=='x2021')%>% select(-year, -price_range), by=c("name_in_realtors_data"="place"))
-mpls_sf <-  mpls_sf %>% rename(name2=BDNAME) %>% filter(name_in_realtors_data!='Como Park')
-
-
-sp_sf <-  left_join(sp_sf, cities %>% select(name_in_realtors_data, neighborhoodname), by=c("name2"="neighborhoodname"))
-sp_sf <-  left_join(sp_sf, msi_hoods %>% filter(year=='x2021')%>% select(-year, -price_range), by=c("name_in_realtors_data"="place"))
-sp_sf <-  left_join(sp_sf, ppsf_hoods %>% filter(year=='x2021')%>% select(-year, -price_range), by=c("name_in_realtors_data"="place"))
-sp_sf <-  sp_sf %>% filter(name_in_realtors_data!='Southeast Como')
-
-
-st_write(sp_sf, "./mapping/sp_sf_hhi.shp")
-st_write(mpls_sf, "./mapping/mpls_sf_hhi.shp")
 
 
 
@@ -533,6 +511,8 @@ index_neighborhoods <-  index %>%
   filter(price_range=='neighborhood')
 
 index_all <-  bind_rows(index_experiment, index_neighborhoods, index_missing)
+
+
 
 
 # STARTER HOME MARKET INDEX -----------------------------------------------
@@ -580,14 +560,14 @@ index_moveup <-  index %>%
 
 
 #export files
-write.csv(index_all, './output/index_main_2021.csv', row.names=FALSE)
-write.csv(index_starter, './output/index_starter_2021.csv', row.names=FALSE)
-write.csv(index_moveup, './output/index_moveup_2021.csv', row.names=FALSE)
-write.csv(index_buyer_version2, './output/index_buyers_2021.csv', row.names=FALSE)
-write.csv(index_seller, './output/index_sellers_2021.csv', row.names=FALSE)
+write.csv(index_all, './output/index_main.csv', row.names=FALSE)
+write.csv(index_starter, './output/index_starter.csv', row.names=FALSE)
+write.csv(index_moveup, './output/index_moveup.csv', row.names=FALSE)
+write.csv(index_buyer_version2, './output/index_buyers.csv', row.names=FALSE)
+write.csv(index_seller, './output/index_sellers.csv', row.names=FALSE)
 
 
-write.csv(alldata %>% filter(closed_sales>5, year=='x2021', price_range=='all') %>% select(place, geoid2, ppsf), './output/ppsf_map_2021.csv', row.names=FALSE)
+write.csv(alldata %>% filter(closed_sales>5, year=='x2022', price_range=='all') %>% select(place, geoid2, ppsf), './output/ppsf_map_2021.csv', row.names=FALSE)
 
 
 
@@ -620,7 +600,7 @@ metro_tenure <-  map_dfr(
     geography = "metropolitan statistical area/micropolitan statistical area",
     variables = ownership_variables,
     year = .x,
-    survey = "acs5"
+    survey = "acs1"
   ),
   .id = "year"
 ) %>%
@@ -658,7 +638,7 @@ metro_income <-  map_dfr(
     geography = "metropolitan statistical area/micropolitan statistical area",
     variables = income_variables,
     year = .x,
-    survey = "acs5"
+    survey = "acs1"
   ),
   .id = "year"
 ) %>%
@@ -697,7 +677,7 @@ metro_burden <-  map_dfr(
     geography = "metropolitan statistical area/micropolitan statistical area",
     variables = burden_variables,
     year = .x,
-    survey = "acs5"
+    survey = "acs1"
   ),
   .id = "year"
 ) %>%
@@ -734,7 +714,7 @@ metro_value <-  map_dfr(
     geography = "metropolitan statistical area/micropolitan statistical area",
     variables = value_variables,
     year = .x,
-    survey = "acs5"
+    survey = "acs1"
   ),
   .id = "year"
 ) %>%
@@ -761,7 +741,7 @@ value <-  bind_rows(place_value, metro_value) %>%
 
 #Merge census variables with index_all results
 #value, burden, income, tenure
-index_for_web <-  left_join(index_all, cities %>% select(geoid2, strib_id, full_name, city_name, location, 
+index_for_web <-  left_join(index_all, cities %>% select(geoid2, strib_id, location, 
                                                          county, state, type), by=c("geoid2"="geoid2"))
 
 index_for_web <-  left_join(index_for_web, income, by=c("geoid2"="geoid") )
@@ -808,9 +788,16 @@ timeseries_cities <-  left_join(timeseries_cities , closed_all %>% select(place,
 
 timeseries_cities <-  left_join(timeseries_cities , inv_all %>% select(place, year, inv),
                          by=c("name_in_realtors_data"="place", "year"="year"))%>%
-  mutate(variable = str_sub(year,2,5)) %>% 
+  mutate(variable = str_sub(year,2,5))
+
+timeseries_cities <-  left_join(timeseries_cities , msi_all %>% select(place, year, msi),
+                                by=c("name_in_realtors_data"="place", "year"="year"))%>%
+  mutate(variable = str_sub(year,2,5))%>% 
   rename(place=name_in_realtors_data) 
 
+
+
+write.csv(timeseries_cities, './output/timeseries_cities.csv', row.names = FALSE)
 
 
 
@@ -835,18 +822,23 @@ timeseries_hoods <-  left_join(timeseries_hoods , closed_hoods %>% select(place,
 
 timeseries_hoods <-  left_join(timeseries_hoods , inv_hoods %>% select(place, year, inv),
                          by=c("name_in_realtors_data"="place", "year"="year")) %>%
-  mutate(variable = str_sub(year,2,5)) %>% 
+  mutate(variable = str_sub(year,2,5)) 
+
+
+timeseries_hoods <-  left_join(timeseries_hoods , msi_hoods %>% select(place, year, msi),
+                                by=c("name_in_realtors_data"="place", "year"="year"))%>%
+  mutate(variable = str_sub(year,2,5))%>% 
   rename(place=name_in_realtors_data) %>% 
   select(-year)
 
-
+write.csv(timeseries_hoods, './output/timeseries_hoods.csv', row.names = FALSE)
 
 #merge thre three timeseries files and reorder columns to match last year
 
 timeseries <-  bind_rows(timeseries_cities, timeseries_metro, timeseries_hoods) %>% 
   select(place, variable, dom, type, 
          strib_id, geoid2, full_name, location, neighborhoodname,
-         ppsf, closed=closed_sales, inventory=inv) %>% 
+         ppsf, closed=closed_sales, inventory=inv, msi) %>% 
 filter(variable>=timeseries_start, variable<=timeseries_end)
 
 
@@ -856,7 +848,7 @@ filter(variable>=timeseries_start, variable<=timeseries_end)
 
 #export to JSON
 timeseries_json <-  toJSON(timeseries, pretty=TRUE)
-write(timeseries_json, "./output/timeseries.json")
+#write(timeseries_json, "./output/timeseries.json")
 
 
 
@@ -865,7 +857,7 @@ write(timeseries_json, "./output/timeseries.json")
 
 #generate as a JSON file
 hot_housing_index_json <-  toJSON(index_for_web, pretty=TRUE)
-write(hot_housing_index_json, "./output/hot_housing_index.json")
+#write(hot_housing_index_json, "./output/hot_housing_index.json")
 
 
 

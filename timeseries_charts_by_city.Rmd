@@ -1,0 +1,126 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(kableExtra)
+library(scales)
+
+
+cities <- read_csv('./output/timeseries_cities.csv') %>% filter(variable!='NA')
+
+cities$inv[is.na(cities$inv)] <-  0
+
+
+
+
+year1 <-  cities %>% summarise(first = min(variable))
+yearend <-  cities %>% summarise(last = max(variable))
+
+city <- 'Lake Elmo'
+
+data <- cities %>% filter(place==city)
+
+#write.csv(data, './output/lake_elmo_data.csv', row.names=FALSE)
+```
+
+```{r}
+
+
+ttl <-  paste(city, "Months Supply", sep="-")
+
+max <- data %>% summarise(mx = max(msi))
+
+
+ggplot(data, aes(x=variable, y=msi))+
+  geom_col(stat="identity")+
+  scale_y_continuous(limits=c(0,max$mx+1))+
+  scale_x_continuous(breaks=seq(year1$first, yearend$last, 1))+
+    geom_text(stat="identity", label=round(data$msi,1), vjust=-1)+
+  labs(title=ttl,
+       x="Year",
+       y="Months supply")
+
+
+  
+  
+filname <-  paste('./output/',ttl,'.jpg', sep='')
+ggsave(filname, width=6, height=4, units="in", dpi="print")
+```
+
+```{r}
+ttl <-  paste(city, "Inventory", sep="-")
+
+max <- data %>% summarise(mx = max(inv))
+
+ggplot(data, aes(x=variable, y=inv))+
+  geom_col(stat="identity")+
+  scale_y_continuous(limits=c(0,max$mx+3))+
+    scale_x_continuous(breaks=seq(year1$first, yearend$last, 1))+
+      geom_text(stat="identity", label=round(data$inv,1), vjust=-1)+
+  labs(title=ttl,
+       x="Year",
+       y="Inventory")
+
+filname <-  paste('./output/',ttl,'.jpg', sep='')
+ggsave(filname, width=6, height=4, units="in", dpi="print")
+```
+
+```{r}
+ttl <-  paste(city, "Closed Sales", sep="-")
+
+max <- data %>% summarise(mx = max(closed_sales))
+
+ggplot(data, aes(x=variable, y=closed_sales))+
+  geom_col(stat="identity")+
+  scale_y_continuous(limits=c(0,max$mx+3))+
+    scale_x_continuous(breaks=seq(year1$first, yearend$last, 1))+
+        geom_text(stat="identity", label=round(data$closed_sales,1), vjust=-1)+
+  labs(title=ttl,
+       x="Year",
+       y="Closed Sales")
+
+filname <-  paste('./output/',ttl,'.jpg', sep='')
+ggsave(filname, width=6, height=4, units="in", dpi="print")
+```
+```{r}
+ttl <-  paste(city, "Price per square foot", sep="-")
+
+max <- data %>% summarise(mx = max(ppsf))
+
+ggplot(data, aes(x=variable, y=ppsf))+
+  geom_col(stat="identity")+
+  scale_y_continuous(limits=c(0,max$mx+3), labels=dollar)+
+    scale_x_continuous(breaks=seq(year1$first, yearend$last, 1))+
+geom_text(stat="identity", label=round(data$ppsf,1), vjust=-1)+
+  labs(title=ttl,
+       x="Year",
+       y="Price per square foot")
+
+filname <-  paste('./output/',ttl,'.jpg', sep='')
+ggsave(filname, width=6, height=4, units="in", dpi="print")
+```
+
+```{r}
+ttl <-  paste(city, "Days on market", sep="-")
+
+max <- data %>% summarise(mx = max(dom))
+
+ggplot(data, aes(x=variable, y=dom))+
+  geom_col(stat="identity")+
+  scale_y_continuous(limits=c(0,max$mx+3))+
+    scale_x_continuous(breaks=seq(year1$first, yearend$last, 1))+
+  geom_text(stat="identity", label=round(data$dom,1), vjust=-1)+
+  labs(title=ttl,
+       x="Year",
+       y="Days on market")
+
+
+
+filname <-  paste('./output/',ttl,'.jpg', sep='')
+ggsave(filname, width=6, height=4, units="in", dpi="print")
+```
+
