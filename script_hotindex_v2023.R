@@ -94,17 +94,17 @@ neighborhoods <- cities %>%  filter(type=='neighborhood')
 
 #closed sales data for 3 price ranges + neighborhoods
 #import and then pivot longer and add labels
-closed_all <- read_xlsx(datafile, sheet='CS-C', range='B14:I4529') %>% clean_names() %>% 
+closed_all <- read_xlsx(datafile, sheet='CS-C', range='B14:I4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
   mutate(price_range='all')
 
-closed_starter <-  read_xlsx(datafile, sheet='CS-C', range='L14:S4529') %>% clean_names() %>% 
+closed_starter <-  read_xlsx(datafile, sheet='CS-C', range='L14:S4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
   mutate(price_range='starter')
 
-closed_moveup <-  read_xlsx(datafile, sheet='CS-C', range='V14:AC4529') %>% clean_names() %>% 
+closed_moveup <-  read_xlsx(datafile, sheet='CS-C', range='V14:AC4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "closed_sales") %>% 
   mutate(price_range='moveup')
@@ -127,17 +127,17 @@ closed$closed_sales[is.na(closed$closed_sales)] <-  0
 
 
 #Days on market
-dom_all <- read_xlsx(datafile, sheet='CDOM-C', range='B14:I4529') %>% clean_names() %>% 
+dom_all <- read_xlsx(datafile, sheet='CDOM-C', range='B14:I4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "dom") %>% 
   mutate(price_range='all')
 
-dom_starter <-  read_xlsx(datafile, sheet='CDOM-C', range='L14:S4529') %>% clean_names() %>% 
+dom_starter <-  read_xlsx(datafile, sheet='CDOM-C', range='L14:S4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "dom") %>% 
   mutate(price_range='starter')
 
-dom_moveup <-  read_xlsx(datafile, sheet='CDOM-C', range='V14:AC4529') %>% clean_names() %>% 
+dom_moveup <-  read_xlsx(datafile, sheet='CDOM-C', range='V14:AC4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "dom") %>% 
   mutate(price_range='moveup')
@@ -160,17 +160,17 @@ dom$dom[is.na(dom$dom)] <-  0
 #Pct of original list price
 #this one isn't needed for neighborhoods
 
-polp_all <- read_xlsx(datafile, sheet='POLP-C', range='B14:I4529') %>% clean_names() %>% 
+polp_all <- read_xlsx(datafile, sheet='POLP-C', range='B14:I4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "polp") %>% 
   mutate(price_range='all')
 
-polp_starter <-  read_xlsx(datafile, sheet='POLP-C', range='L14:S4529') %>% clean_names() %>% 
+polp_starter <-  read_xlsx(datafile, sheet='POLP-C', range='L14:S4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "polp") %>% 
   mutate(price_range='starter')
 
-polp_moveup <-  read_xlsx(datafile, sheet='POLP-C', range='V14:AC4529') %>% clean_names() %>% 
+polp_moveup <-  read_xlsx(datafile, sheet='POLP-C', range='V14:AC4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "polp") %>% 
   mutate(price_range='moveup')
@@ -187,19 +187,19 @@ polp$polp[is.na(polp$polp)] <-  0
 
 
 #Price per square foot
-ppsf_all <- read_xlsx(datafile, sheet='PPSF-C', range='B14:I4529') %>% clean_names() %>% 
+ppsf_all <- read_xlsx(datafile, sheet='PPSF-C', range='B14:I4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
   mutate(price_range='all')
 
 
 
-ppsf_starter <-  read_xlsx(datafile, sheet='PPSF-C', range='L14:S4529') %>% clean_names() %>% 
+ppsf_starter <-  read_xlsx(datafile, sheet='PPSF-C', range='L14:S4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
   mutate(price_range='starter')
 
-ppsf_moveup <-  read_xlsx(datafile, sheet='PPSF-C', range='V14:AC4529') %>% clean_names() %>% 
+ppsf_moveup <-  read_xlsx(datafile, sheet='PPSF-C', range='V14:AC4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "ppsf") %>% 
   mutate(price_range='moveup')
@@ -220,17 +220,17 @@ ppsf$ppsf[is.na(ppsf$ppsf)] <-  0
 
 
 #Inventory
-inv_all <- read_xlsx(datafile, sheet='INV-C', range='B14:I4529') %>% clean_names() %>% 
+inv_all <- read_xlsx(datafile, sheet='INV-C', range='B14:I4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "inv") %>% 
   mutate(price_range='all')
 
-inv_starter <-  read_xlsx(datafile, sheet='INV-C', range='L14:S4529') %>% clean_names() %>% 
+inv_starter <-  read_xlsx(datafile, sheet='INV-C', range='L14:S4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "inv") %>% 
   mutate(price_range='starter')
 
-inv_moveup <-  read_xlsx(datafile, sheet='INV-C', range='V14:AC4529') %>% clean_names() %>% 
+inv_moveup <-  read_xlsx(datafile, sheet='INV-C', range='V14:AC4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "inv") %>% 
   mutate(price_range='moveup')
@@ -251,18 +251,18 @@ inv$inv[is.na(inv$inv)] <-  0
 
 
 # Months Supply
-msi_all <- read_xlsx(datafile, sheet='MSI-C', range='B14:I4529') %>% clean_names() %>% 
+msi_all <- read_xlsx(datafile, sheet='MSI-C', range='B14:I4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "msi") %>% 
   mutate(price_range='all') 
 
 
-msi_starter <-  read_xlsx(datafile, sheet='MSI-C', range='L14:S4529') %>% clean_names() %>% 
+msi_starter <-  read_xlsx(datafile, sheet='MSI-C', range='L14:S4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "msi") %>% 
   mutate(price_range='starter')
 
-msi_moveup <-  read_xlsx(datafile, sheet='MSI-C', range='V14:AC4529') %>% clean_names() %>% 
+msi_moveup <-  read_xlsx(datafile, sheet='MSI-C', range='V14:AC4539') %>% clean_names() %>% 
   rename(place=row_labels) %>%
   pivot_longer(-place, names_to="year", values_to = "msi") %>% 
   mutate(price_range='moveup')
